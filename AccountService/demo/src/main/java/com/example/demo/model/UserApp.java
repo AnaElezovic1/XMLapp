@@ -17,57 +17,27 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserApp implements UserDetails {
+public class UserApp  {
     @Id
-    @SequenceGenerator(name = "userAppSeqGen", sequenceName = "userAppSeq", initialValue = 1, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "userAppSeqGen")
-    @Column(name="id", unique=true, nullable=false)
-    private long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(nullable=false,updatable=false)
+    private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true)
     private String username;
 
     //@JsonIgnore
     @Column
     private String password;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @Column
+    private String email;
+
+    @Enumerated(EnumType.ORDINAL)
     private Role role;
 
-    private String city;
+    @Column
+    private String adress;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority(this.role.getName()));
-    }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

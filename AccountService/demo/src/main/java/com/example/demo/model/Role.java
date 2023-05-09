@@ -8,21 +8,15 @@ import lombok.Setter;
 
 import org.springframework.security.core.GrantedAuthority;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Role implements GrantedAuthority {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public enum Role {
+    NEREGISTROVANI_KORISNIK("NK"),
+    GOST("G"),
+    HOST("H");
 
-    @Column
-    private String name;
 
-    @Override
-    public String getAuthority() {
-        return null;
+    private final String user;
+
+    Role(String user) {
+        this.user = user;
     }
 }

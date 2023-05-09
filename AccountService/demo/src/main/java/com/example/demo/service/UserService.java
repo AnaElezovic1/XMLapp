@@ -17,7 +17,12 @@ public class UserService {
     }
 
     public void addNewUser(UserApp users){
-        userRepository.save(users);
+        UserApp existingUser = userRepository.findByUsername(users.getUsername());
+        if(existingUser != null){
+            throw new RuntimeException("Korisnik sa datim korisničkim imenom već postoji!");
+        } else {
+            userRepository.save(users);
+        }
     }
 
     public List<UserApp> getUsers(){
@@ -26,5 +31,13 @@ public class UserService {
 
     public void deleteUser(Long userId){
         userRepository.deleteById(userId);
+    }
+
+    public UserApp login(String username, String password) {
+        List<UserApp> users = userRepository.findUserByUsernameAndPassword(username, password);
+        if (users.isEmpty()) {
+            return null;
+        }
+        return users.get(0);
     }
 }

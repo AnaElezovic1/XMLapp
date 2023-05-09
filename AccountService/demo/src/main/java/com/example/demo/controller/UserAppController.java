@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.model.UserApp;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +32,15 @@ public class UserAppController {
     @DeleteMapping(path="/delete/{userId}")
     public void deleteUser(@PathVariable("userId")Long userId){
         userService.deleteUser(userId);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserApp> login(@RequestBody UserApp users) {
+        UserApp user = userService.login(users.getUsername(), users.getPassword());
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return ResponseEntity.ok(user);
     }
 
 }
