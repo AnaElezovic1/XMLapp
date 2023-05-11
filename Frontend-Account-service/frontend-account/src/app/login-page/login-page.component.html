@@ -10,9 +10,23 @@
     <main class="main-container">
       <div class="registration-form">
         <h1>Accomodation reservation</h1>
-        <form action="">
-          <input type="text" placeholder="Enter your username" />
-          <input type="text" placeholder="Password" />
+        <form (ngSubmit)="submitForm(form)" #form="ngForm">
+          <input
+            type="text"
+            name="username"
+            #username="ngModel"
+            ngModel
+            required
+            placeholder="Enter your username"
+          />
+          <input
+            type="text"
+            name="password"
+            #password="ngModel"
+            ngModel
+            required
+            placeholder="Password"
+          />
           <button class="main-button" type="submit">Sign in</button>
 
           <div class="bottom-div">

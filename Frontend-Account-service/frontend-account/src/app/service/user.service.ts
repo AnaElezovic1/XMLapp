@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Users } from '../model/user';
 import { UsersRegistrationDTO } from '../model/userRegistrationDTO';
+import { userLoginDTO } from '../model/userLoginDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +15,13 @@ export class UserService {
 
   addUser(user: UsersRegistrationDTO): Observable<UsersRegistrationDTO> {
     return this.http.post<UsersRegistrationDTO>(`${this.baseUrl}/add`, user);
+  }
+
+  login(user: userLoginDTO): Observable<Users> {
+    return this.http.post<Users>(`${this.baseUrl}/login`, user);
+  }
+
+  getUsers(): Observable<Users[]> {
+    return this.http.get<Users[]>('http://localhost:8082/users/all');
   }
 }

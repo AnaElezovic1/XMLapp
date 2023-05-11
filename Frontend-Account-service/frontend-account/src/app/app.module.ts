@@ -9,12 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { UserPageComponent } from './user-page/user-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'user-profile', component: UserProfileComponent },
 ];
 
 @NgModule({
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
     AppComponent,
     RegistrationPageComponent,
     LoginPageComponent,
-    UserPageComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

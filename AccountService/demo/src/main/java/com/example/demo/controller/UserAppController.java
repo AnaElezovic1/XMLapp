@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.UserApp;
 import com.example.demo.dto.userRegdto;
+import com.example.demo.dto.userLogdto;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,15 +46,18 @@ public class UserAppController {
     }
 
 
-
     @DeleteMapping(path="/delete/{userId}")
     public void deleteUser(@PathVariable("userId")Long userId){
         userService.deleteUser(userId);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserApp> login(@RequestBody UserApp users) {
-        UserApp user = userService.login(users.getUsername(), users.getPassword());
+    public ResponseEntity<UserApp> login(@RequestBody userLogdto users) {
+        UserApp loggedUser = new UserApp();
+        loggedUser.setUsername(users.getUsername());
+        loggedUser.setPassword(users.getPassword());
+
+        UserApp user = userService.login(loggedUser.getUsername(), loggedUser.getPassword());
         if (user == null) {
             return null;
         }

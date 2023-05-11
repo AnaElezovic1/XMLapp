@@ -1,0 +1,15 @@
+<div *ngIf="loggedIn">
+  <h1>User Profile</h1>
+  <form (ngSubmit)="onSubmit()">
+    <input type="text" name="username" [(ngModel)]="user.username" />
+    <input type="email" name="email" [(ngModel)]="user.email" />
+    <input type="password" name="password" [(ngModel)]="user.password" />
+    <input type="role" name="role" [(ngModel)]="user.role" />
+    <input type="adress" name="adress" [(ngModel)]="user.adress" />
+
+    <button type="submit" class="secondary-button">Save</button>
+  </form>
+</div>
+<div *ngIf="!loggedIn">
+  <p>Please log in to view your profile.</p>
+</div>

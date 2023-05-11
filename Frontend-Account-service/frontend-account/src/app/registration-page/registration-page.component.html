@@ -28,7 +28,7 @@
             #password="ngModel"
           />
           <input
-          class="aba"
+            class="aba"
             type="text"
             placeholder="email"
             name="email"
@@ -44,6 +44,7 @@
             ngModel
             #adress="ngModel"
           />
+          <label for="Role">Role</label>
           <select [(ngModel)]="selectedRole" name="role">
             <option *ngFor="let role of roles" [value]="role">
               {{ role }}
