@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.UserApp;
+import com.example.demo.dto.userRegdto;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins= "http://localhost:4200/")
 @RequestMapping(path="/users")
 public class UserAppController {
     private  final UserService userService;
@@ -24,10 +26,25 @@ public class UserAppController {
         return userService.getUsers();
     }
 
+    //@PostMapping("/add")
+    //public void addUser(@RequestBody UserApp users){
+      //  userService.addNewUser(users);
+    //}
+
     @PostMapping("/add")
-    public void addUser(@RequestBody UserApp users){
-        userService.addNewUser(users);
+    public UserApp addUser(@RequestBody userRegdto userRegistrationDTO) {
+        UserApp user = new UserApp();
+        user.setUsername(userRegistrationDTO.getUsername());
+        user.setPassword(userRegistrationDTO.getPassword());
+        user.setEmail(userRegistrationDTO.getEmail());
+        user.setRole(userRegistrationDTO.getRole());
+        user.setAdress(userRegistrationDTO.getAdress());
+
+        userService.addNewUser(user);
+        return user;
     }
+
+
 
     @DeleteMapping(path="/delete/{userId}")
     public void deleteUser(@PathVariable("userId")Long userId){
@@ -38,7 +55,7 @@ public class UserAppController {
     public ResponseEntity<UserApp> login(@RequestBody UserApp users) {
         UserApp user = userService.login(users.getUsername(), users.getPassword());
         if (user == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+            return null;
         }
         return ResponseEntity.ok(user);
     }

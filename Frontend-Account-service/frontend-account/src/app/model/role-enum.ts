@@ -1,0 +1,5 @@
+export enum Role {
+  NEREGISTROVANI_KORISNIK = 'NEREGISTROVANI_KORISNIK',
+  GOST = 'GOST',
+  HOST = 'HOST',
+}

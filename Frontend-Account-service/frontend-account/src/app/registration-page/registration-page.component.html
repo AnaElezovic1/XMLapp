@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="registration-form">
+        <h1>Accomodation reservation</h1>
+        <form (ngSubmit)="submitForm(form)" #form="ngForm">
+          <input
+            type="text"
+            placeholder="Enter your username"
+            #username="ngModel"
+            name="username"
+            required
+            ngModel
+          />
+          <input
+            type="text"
+            placeholder="Password"
+            name="password"
+            required
+            ngModel
+            #password="ngModel"
+          />
+          <input
+          class="aba"
+            type="text"
+            placeholder="email"
+            name="email"
+            required
+            ngModel
+            #email="ngModel"
+          />
+          <input
+            type="text"
+            placeholder="adress"
+            name="adress"
+            required
+            ngModel
+            #adress="ngModel"
+          />
+          <select [(ngModel)]="selectedRole" name="role">
+            <option *ngFor="let role of roles" [value]="role">
+              {{ role }}
+            </option>
+          </select>
+          <button class="main-button" type="submit">Register</button>
+          <div class="bottom-div">
+            <p>
+              Already have an account?
+              <button
+                class="secondary-button"
+                routerLink="/login"
+                type="submit"
+              >
+                Sign in
+              </button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
