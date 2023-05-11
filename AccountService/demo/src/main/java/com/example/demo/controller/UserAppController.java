@@ -45,6 +45,12 @@ public class UserAppController {
         return user;
     }
 
+    @PutMapping("/{id}")
+    public UserApp updateUser(@PathVariable("id") Long id, @RequestBody UserApp updatedUser) {
+        updatedUser.setId(id);
+        return userService.updateUser(updatedUser);
+    }
+
 
     @DeleteMapping(path="/delete/{userId}")
     public void deleteUser(@PathVariable("userId")Long userId){

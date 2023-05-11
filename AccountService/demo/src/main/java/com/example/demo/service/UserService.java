@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -40,4 +42,17 @@ public class UserService {
         }
         return users.get(0);
     }
+
+    public UserApp updateUser(UserApp updatedUser) {
+        Optional<UserApp> user = userRepository.findById(updatedUser.getId());
+
+        if (user.isPresent()) {
+            return userRepository.save(updatedUser);
+        } else {
+            // Handle the case when the user doesn't exist
+            throw new  RuntimeException("Username not found!");
+        }
+    }
+
+
 }

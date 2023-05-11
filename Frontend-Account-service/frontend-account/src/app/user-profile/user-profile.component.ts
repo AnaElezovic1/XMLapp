@@ -27,5 +27,14 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  onSubmit() {}
+  onSubmit(): void {
+    this.userService.updateUser(this.user).subscribe(
+      (user) => {
+        console.log('User updated successfully', user);
+      },
+      (error) => {
+        console.log('Error updating user', error);
+      }
+    );
+  }
 }

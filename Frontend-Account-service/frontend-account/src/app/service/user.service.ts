@@ -24,4 +24,8 @@ export class UserService {
   getUsers(): Observable<Users[]> {
     return this.http.get<Users[]>('http://localhost:8082/users/all');
   }
+
+  updateUser(user: Users): Observable<Users> {
+    return this.http.put<Users>(`${this.baseUrl}/${user.id}`, user);
+  }
 }
