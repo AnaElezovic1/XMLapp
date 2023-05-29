@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "wUCOdMu7+NsVkxnIfMn7ZsQZAdiQKh+kjNMS3w6lRkc/mBVpLnQ32au266xnWcWEGWxkSnYJ+hzzFWjPREAZtQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dobrosav\\Desktop\\projekat\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\google.protobuf\\3.18.0\\google.protobuf.3.18.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.aspnetcore\\2.40.0\\grpc.aspnetcore.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.aspnetcore.server\\2.40.0\\grpc.aspnetcore.server.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.aspnetcore.server.clientfactory\\2.40.0\\grpc.aspnetcore.server.clientfactory.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.core.api\\2.40.0\\grpc.core.api.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.net.client\\2.40.0\\grpc.net.client.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.net.clientfactory\\2.40.0\\grpc.net.clientfactory.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.net.common\\2.40.0\\grpc.net.common.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.tools\\2.40.0\\grpc.tools.2.40.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.5\\microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.http\\3.0.3\\microsoft.extensions.http.3.0.3.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Dobrosav\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,6 @@
+C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.csproj.AssemblyReference.cache
+C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.AssemblyInfoInputs.cache
+C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.AssemblyInfo.cs
+C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.csproj.CoreCompileInputs.cache
+C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.MvcApplicationPartsAssemblyInfo.cache
