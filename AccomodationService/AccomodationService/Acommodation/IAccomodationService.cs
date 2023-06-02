@@ -1,8 +1,4 @@
-﻿using BloodBankLibrary.Core.Accomodations;
-using System;
-using System.Collections.Generic;
-
-namespace BloodBankLibrary.Core.Accomodations
+﻿namespace BloodBankLibrary.Core.Accomodations
 {
     public interface IAccomodationService
     {

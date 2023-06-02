@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MimeKit.Encodings;
-using Microsoft.IdentityModel.Tokens;
-using System.Transactions;
-using BloodBankLibrary.Core.Accomodations;
-
-namespace BloodBankLibrary.Core.Accomodations
+﻿namespace BloodBankLibrary.Core.Accomodations
 {
     public class AccomodationService : IAccomodationService
     {
@@ -39,7 +31,7 @@ namespace BloodBankLibrary.Core.Accomodations
             return _accomodationRepository.GetById(id);
         }
 
-     
+
         public void Delete(Accomodation accomodation)
         {
             _accomodationRepository.Delete(accomodation);

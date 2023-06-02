@@ -4,3 +4,9 @@ C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\D
 C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.AssemblyInfo.cs
 C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.csproj.CoreCompileInputs.cache
 C:\Users\Dobrosav\Desktop\projekat\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.MvcApplicationPartsAssemblyInfo.cache
+F:\GIT\XMLapp\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.csproj.AssemblyReference.cache
+F:\GIT\XMLapp\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.GeneratedMSBuildEditorConfig.editorconfig
+F:\GIT\XMLapp\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.AssemblyInfoInputs.cache
+F:\GIT\XMLapp\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.AssemblyInfo.cs
+F:\GIT\XMLapp\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.csproj.CoreCompileInputs.cache
+F:\GIT\XMLapp\AccomodationService\AccomodationService\obj\Debug\net6.0\AccomodationService.MvcApplicationPartsAssemblyInfo.cache

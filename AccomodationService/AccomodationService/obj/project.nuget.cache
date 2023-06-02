@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wUCOdMu7+NsVkxnIfMn7ZsQZAdiQKh+kjNMS3w6lRkc/mBVpLnQ32au266xnWcWEGWxkSnYJ+hzzFWjPREAZtQ==",
+  "dgSpecHash": "mcqW9B4vVkX2sxzzm0I3PHs+JHVGR+kRZXsuwZ6oE1561xO/Iv4UvBuqBtVworcCXMdgUgH3Gfc7xcaR9x6IFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dobrosav\\Desktop\\projekat\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+  "projectFilePath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dobrosav\\.nuget\\packages\\google.protobuf\\3.18.0\\google.protobuf.3.18.0.nupkg.sha512",
     "C:\\Users\\Dobrosav\\.nuget\\packages\\grpc.aspnetcore\\2.40.0\\grpc.aspnetcore.2.40.0.nupkg.sha512",

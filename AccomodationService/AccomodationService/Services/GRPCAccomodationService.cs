@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using BloodBankLibrary.Core.Accomodations;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -21,10 +18,10 @@ namespace YourNamespace.Services
             return Task.FromResult(accomodationRepository.GetAll());
         }
 
-        public override Task<Accomodation> GetById(AccomodationId request, ServerCallContext context)
+        public override Task<Accomodation> GetById(int request, ServerCallContext context)
         {
 
-                return Task.FromResult(accomodationRepository.GetById);
+            return Task.FromResult(accomodationRepository.GetById);
         }
 
         public override Task<Empty> Create(Accomodation request, ServerCallContext context)
@@ -33,18 +30,18 @@ namespace YourNamespace.Services
             return Task.FromResult(new Empty());
         }
 
-        public override Task<Empty> Delete(AccomodationId request, ServerCallContext context)
+        public override Task<Empty> Delete(int request, ServerCallContext context)
         {
 
-                accomodationRepository.Remove(accomodation);
-                return Task.FromResult(new Empty());
+            accomodationRepository.Remove(request);
+            return Task.FromResult(new Empty());
 
         }
 
         public override Task<Empty> Update(Accomodation request, ServerCallContext context)
         {
-                accomodationRepository.Update(request);
-                return Task.FromResult(new Empty());
+            accomodationRepository.Update(request);
+            return Task.FromResult(new Empty());
         }
     }
 }

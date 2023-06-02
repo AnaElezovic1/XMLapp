@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package BloodBankAPI;
+
+option csharp_namespace = "BloodBankAPI.Protos";
+
+message Reservation {
+   int32 id = 1;
+   string name = 2;
+   // other fields
+}
+
+service ReservationService {
+   rpc GetAll (google.protobuf.Empty) returns (ReservationList) {}
+   rpc GetById (GetByIdRequest) returns (Reservation) {}
+   rpc Create (CreateRequest) returns (google.protobuf.Empty) {}
+   rpc Delete (DeleteRequest) returns (google.protobuf.Empty) {}
+   rpc Update (UpdateRequest) returns (google.protobuf.Empty) {}
+}
+
+message GetByIdRequest {
+   int32 id = 1;
+}
+
+message CreateRequest {
+   Reservation reservation = 1;
+}
+
+message DeleteRequest {
+   int32 id = 1;
+}
+
+message UpdateRequest {
+   Reservation reservation = 1;
+}
+
+message ReservationList {
+   repeated Reservation items = 1;
+}

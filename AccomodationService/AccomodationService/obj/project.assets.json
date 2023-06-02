@@ -1079,11 +1079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dobrosav\\Desktop\\projekat\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+      "projectUniqueName": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
       "projectName": "AccomodationService",
-      "projectPath": "C:\\Users\\Dobrosav\\Desktop\\projekat\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+      "projectPath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
       "packagesPath": "C:\\Users\\Dobrosav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dobrosav\\Desktop\\projekat\\AccomodationService\\AccomodationService\\obj\\",
+      "outputPath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dobrosav\\AppData\\Roaming\\NuGet\\NuGet.Config",

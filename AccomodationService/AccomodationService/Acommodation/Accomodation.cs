@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BloodBankLibrary.Core.Accomodations
 {
@@ -13,7 +12,7 @@ namespace BloodBankLibrary.Core.Accomodations
         private string images;
         private int beds;
 
-        public Accomodation(    )
+        public Accomodation()
         {
         }
 
