@@ -6,7 +6,7 @@ namespace Settings
 {
     public class WSDbContext : DbContext
     {
-        public DbSet<Accomodation> Accomodations { get; set; }
+        public DbSet<AccomodationBE> Accomodations { get; set; }
 
         public WSDbContext(DbContextOptions<WSDbContext> options) : base(options) { }
 

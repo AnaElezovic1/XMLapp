@@ -1,6 +1,8 @@
 using BloodBankLibrary.Core.Accomodations;
 using Settings;
-
+using YourNamespace.Services;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 namespace BloodBankAPI
 {
     public class Startup
@@ -22,7 +24,6 @@ namespace BloodBankAPI
 
 
             services.AddScoped<IAccomodationRepository, AccomodationRepository>();
-            services.AddScoped<IAccomodationService, AccomodationService>();
             services.AddSession();
             services.AddControllers();
             services.AddMemoryCache();
@@ -52,7 +53,7 @@ namespace BloodBankAPI
             app.UseSession();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<AccomodationService>();
+                endpoints.MapGrpcService<GRPCAccomodationService>();
             });
         }
     }

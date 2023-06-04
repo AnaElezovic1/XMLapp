@@ -11,29 +11,29 @@ namespace BloodBankLibrary.Core.Accomodations
             _context = context;
         }
 
-        public void Create(Accomodation accomodation)
+        public void Create(AccomodationBE accomodation)
         {
             _context.Accomodations.Add(accomodation);
             _context.SaveChanges();
         }
 
-        public void Delete(Accomodation accomodation)
+        public void Delete(AccomodationBE accomodation)
         {
             _context.Accomodations.Remove(accomodation);
             _context.SaveChanges();
         }
 
-        public IEnumerable<Accomodation> GetAll()
+        public IEnumerable<AccomodationBE> GetAll()
         {
             return _context.Accomodations.ToList();
         }
 
-        public Accomodation GetById(int id)
+        public AccomodationBE GetById(int id)
         {
             return _context.Accomodations.Find(id);
         }
 
-        public void Update(Accomodation accomodation)
+        public void Update(AccomodationBE accomodation)
         {
             _context.Entry(accomodation).State = EntityState.Modified;
 

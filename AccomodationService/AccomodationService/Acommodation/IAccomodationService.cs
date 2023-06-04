@@ -2,11 +2,11 @@
 {
     public interface IAccomodationService
     {
-        IEnumerable<Accomodation> GetAll();
-        Accomodation GetById(int id);
-        void Create(Accomodation accomodation);
-        void Update(Accomodation accomodation);
+        IEnumerable<AccomodationBE> GetAll();
+        AccomodationBE GetById(int id);
+        void Create(AccomodationBE accomodation);
+        void Update(AccomodationBE accomodation);
 
-        void Delete(Accomodation accomodation);
+        void Delete(AccomodationBE accomodation);
     }
 }
