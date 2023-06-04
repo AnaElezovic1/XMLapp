@@ -45,7 +45,7 @@ namespace YourNamespace.Services
 
         }
 
-        public override Task<Empty> Create(Accomodation request, ServerCallContext context)
+        public Task<Empty> Create(Accomodation request, ServerCallContext context)
         {
             AccomodationBE accomodationBE = new AccomodationBE();
             accomodationBE.Id = request.Id;
@@ -57,7 +57,7 @@ namespace YourNamespace.Services
             return Task.FromResult(new Empty());
         }
 
-        public override Task<Empty> Delete(Accomodation request, ServerCallContext context)
+        public  Task<Empty> Delete(Accomodation request, ServerCallContext context)
         {
             AccomodationBE accomodationBE = new AccomodationBE();
             accomodationBE.Id = request.Id;
@@ -70,7 +70,7 @@ namespace YourNamespace.Services
 
         }
 
-        public override Task<Empty> Update(Accomodation request, ServerCallContext context)
+        public  Task<Empty> Update(Accomodation request, ServerCallContext context)
         {
             AccomodationBE accomodationBE = new AccomodationBE();
             accomodationBE.Id = request.Id;

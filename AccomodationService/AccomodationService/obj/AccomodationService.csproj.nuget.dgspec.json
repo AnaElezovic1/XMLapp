@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj": {}
+    "D:\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj": {}
   },
   "projects": {
-    "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj": {
+    "D:\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+        "projectUniqueName": "D:\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
         "projectName": "AccomodationService",
-        "projectPath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
-        "packagesPath": "C:\\Users\\Dobrosav\\.nuget\\packages\\",
-        "outputPath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\obj\\",
+        "projectPath": "D:\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+        "packagesPath": "C:\\Users\\count\\.nuget\\packages\\",
+        "outputPath": "D:\\XMLapp\\AccomodationService\\AccomodationService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dobrosav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\count\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -120,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

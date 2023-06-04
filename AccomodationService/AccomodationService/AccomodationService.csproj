@@ -33,7 +33,7 @@
 	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0" />
   </ItemGroup>
 	<ItemGroup>
-		<Protobuf Include="Protos\accomodation.proto" GrpcServices="Both" />
+		<Protobuf Include="Protos\accomodation.proto" GrpcServices="Server" />
 	</ItemGroup>
 
 

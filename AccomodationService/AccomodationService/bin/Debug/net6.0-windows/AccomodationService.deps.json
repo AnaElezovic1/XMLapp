@@ -869,7 +869,7 @@
     "Microsoft.NET.Build.Containers/7.0.302": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aKDuE1mXPvs2IkMqrICz/+wQ8cyem1L02rq3x4ltJBo/FrVOzPw0pLEFocz7A4rF+R3W9wEcvi9jmX9IBOwpOQ==",
+      "sha512": "sha512-FT+IWJ2d72WA7ls+0dNjiIb3KE6MkV8A5eLgVq1Z3a83EiaOXxi+HCATHQZaSojmigEyvKw9I5oyga8ZCl1nYw==",
       "path": "microsoft.net.build.containers/7.0.302",
       "hashPath": "microsoft.net.build.containers.7.0.302.nupkg.sha512"
     },

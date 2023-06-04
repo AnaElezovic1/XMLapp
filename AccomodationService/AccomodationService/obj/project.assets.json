@@ -1988,7 +1988,7 @@
       ]
     },
     "Microsoft.NET.Build.Containers/7.0.302": {
-      "sha512": "aKDuE1mXPvs2IkMqrICz/+wQ8cyem1L02rq3x4ltJBo/FrVOzPw0pLEFocz7A4rF+R3W9wEcvi9jmX9IBOwpOQ==",
+      "sha512": "FT+IWJ2d72WA7ls+0dNjiIb3KE6MkV8A5eLgVq1Z3a83EiaOXxi+HCATHQZaSojmigEyvKw9I5oyga8ZCl1nYw==",
       "type": "package",
       "path": "microsoft.net.build.containers/7.0.302",
       "files": [
@@ -3038,19 +3038,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dobrosav\\.nuget\\packages\\": {}
+    "C:\\Users\\count\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+      "projectUniqueName": "D:\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
       "projectName": "AccomodationService",
-      "projectPath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
-      "packagesPath": "C:\\Users\\Dobrosav\\.nuget\\packages\\",
-      "outputPath": "F:\\GIT\\XMLapp\\AccomodationService\\AccomodationService\\obj\\",
+      "projectPath": "D:\\XMLapp\\AccomodationService\\AccomodationService\\AccomodationService.csproj",
+      "packagesPath": "C:\\Users\\count\\.nuget\\packages\\",
+      "outputPath": "D:\\XMLapp\\AccomodationService\\AccomodationService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dobrosav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\count\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3058,6 +3058,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3156,7 +3157,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
