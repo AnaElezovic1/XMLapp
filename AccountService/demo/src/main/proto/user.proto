@@ -35,7 +35,7 @@ message AddUserRequest {
 }
 
 message AddUserResponse {
-  UserApp user = 1;
+  bool success = 1;
 }
 
 message GetUserRequest {
