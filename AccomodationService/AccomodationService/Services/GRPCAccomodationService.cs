@@ -4,7 +4,7 @@ using Grpc.Core;
 
 namespace YourNamespace.Services
 {
-    public class GRPCAccomodationService:Accomodation.AccomodationBase
+    public class GRPCAccomodationService:AccomodationService.AccomodationServiceBase
     {
         private readonly IAccomodationRepository accomodationRepository;
 
@@ -13,8 +13,9 @@ namespace YourNamespace.Services
             this.accomodationRepository = accomodationRepository;
         }
 
-        public override Task<List<Accomodation>> GetAll(Empty request, ServerCallContext context)
+        public override Task<AccomodationList> GetAll(Empty request, ServerCallContext context)
         {
+            AccomodationList list = new AccomodationList();
             List<AccomodationBE> accomodationBE = accomodationRepository.GetAll().ToList();
             List<Accomodation> accomodations = new List<Accomodation>();
             foreach(AccomodationBE bE in accomodationBE)
@@ -25,15 +26,15 @@ namespace YourNamespace.Services
                 acc1.Beds = bE.Beds;
                 acc1.Name = bE.Name;
                 acc1.Images = bE.Images;
-                accomodations.Add(acc1);
+                list.Accomodations.Add(acc1);
             }
-            return Task.FromResult(accomodations);
+            return Task.FromResult(list);
         }
 
-        public override Task<Accomodation> GetById(int request, ServerCallContext context)
+        public override Task<Accomodation> GetById(AccomodationId request, ServerCallContext context)
         {
 
-            AccomodationBE accomodationBE = accomodationRepository.GetById(request);
+            AccomodationBE accomodationBE = accomodationRepository.GetById(request.Id);
             Accomodation acc1 = new Accomodation();
             acc1.Id = accomodationBE.Id;
             acc1.Description = accomodationBE.Description;
