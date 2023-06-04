@@ -4,7 +4,7 @@ using Grpc.Core;
 
 namespace YourNamespace.Services
 {
-    public class GRPCAccomodationService:Accomodation.AccomodationBase
+    public class GRPCAccomodationService:AccomodationService.AccomodationServiceBase
     {
         private readonly IAccomodationRepository accomodationRepository;
 
@@ -13,7 +13,7 @@ namespace YourNamespace.Services
             this.accomodationRepository = accomodationRepository;
         }
 
-        public override Task<List<Accomodation>> GetAll(Empty request, ServerCallContext context)
+        public  Task<List<Accomodation>> GetAll(Empty request, ServerCallContext context)
         {
             List<AccomodationBE> accomodationBE = accomodationRepository.GetAll().ToList();
             List<Accomodation> accomodations = new List<Accomodation>();
@@ -30,7 +30,7 @@ namespace YourNamespace.Services
             return Task.FromResult(accomodations);
         }
 
-        public override Task<Accomodation> GetById(int request, ServerCallContext context)
+        public Task<Accomodation> GetById(int request, ServerCallContext context)
         {
 
             AccomodationBE accomodationBE = accomodationRepository.GetById(request);
@@ -44,7 +44,7 @@ namespace YourNamespace.Services
 
         }
 
-        public override Task<Empty> Create(Accomodation request, ServerCallContext context)
+        public Task<Empty> Create(Accomodation request, ServerCallContext context)
         {
             AccomodationBE accomodationBE = new AccomodationBE();
             accomodationBE.Id = request.Id;
@@ -56,7 +56,7 @@ namespace YourNamespace.Services
             return Task.FromResult(new Empty());
         }
 
-        public override Task<Empty> Delete(Accomodation request, ServerCallContext context)
+        public  Task<Empty> Delete(Accomodation request, ServerCallContext context)
         {
             AccomodationBE accomodationBE = new AccomodationBE();
             accomodationBE.Id = request.Id;
@@ -69,7 +69,7 @@ namespace YourNamespace.Services
 
         }
 
-        public override Task<Empty> Update(Accomodation request, ServerCallContext context)
+        public  Task<Empty> Update(Accomodation request, ServerCallContext context)
         {
             AccomodationBE accomodationBE = new AccomodationBE();
             accomodationBE.Id = request.Id;
