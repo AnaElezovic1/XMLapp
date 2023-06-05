@@ -1,0 +1,93 @@
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using BloodBankLibrary;
+using BloodBankLibrary.Core.Accomodations;
+using Grpc.Core;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.OpenApi.Models;
+using Settings;
+using YourNamespace.Services;
+using Microsoft.EntityFrameworkCore;
+
+namespace AccommodationService
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            services.AddDbContext<WSDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")));
+            services.AddScoped<IAccomodationRepository, AccomodationRepository>();
+            services.AddScoped<IAccomodationService, AccomodationServiceBE>();
+            services.AddGrpc();
+            services.AddMemoryCache();
+            services.AddDistributedMemoryCache();
+            services.AddMvcCore().AddApiExplorer();
+            // Add Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
+        }
+
+        private Server server;
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            // Use Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapGrpcService<GRPCAccomodationService>();
+            });
+
+            server = new Server
+            {
+                Services = { AccomodationService.BindService(new GRPCAccomodationService()) },
+                Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
+            };
+            server.Start();
+
+            applicationLifetime.ApplicationStopping.Register(OnShutdown);
+
+        }
+
+        private void OnShutdown()
+        {
+            if (server != null)
+            {
+                server.ShutdownAsync().Wait();
+            }
+
+        }
+
+
+
+    }
+}
