@@ -14,6 +14,7 @@
           "Grpc.AspNetCore": "2.40.0",
           "Grpc.Net.Client": "2.53.0",
           "Grpc.Tools": "2.40.0",
+          "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "Microsoft.NET.Build.Containers": "7.0.302",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.18.1",
@@ -199,6 +200,25 @@
         }
       },
       "Grpc.Tools/2.40.0": {},
+      "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.8270.41513"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer/5.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Versioning": "5.1.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll": {
+            "assemblyVersion": "5.1.0.0",
+            "fileVersion": "5.1.8270.41534"
+          }
+        }
+      },
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.EntityFrameworkCore/7.0.5": {
         "dependencies": {
@@ -726,6 +746,20 @@
       "path": "grpc.tools/2.40.0",
       "hashPath": "grpc.tools.2.40.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UX8w9BlCiZpr6Ox4YAve1w0CkI1CAovukGNzKd7v0+5pZc8lzuG5tRovucr1RWIKHs0E/Yx8563CN7KzaB3bpw==",
+      "path": "microsoft.aspnetcore.mvc.versioning/5.1.0",
+      "hashPath": "microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p45pSXCJPbx+p9gFNNQPUC547KpqP5cRJke6aygq/M7UzCrJNmJNqD+65pIpY4muYbINqlgrC47h1oc0WbuP1g==",
+      "path": "microsoft.aspnetcore.mvc.versioning.apiexplorer/5.1.0",
+      "hashPath": "microsoft.aspnetcore.mvc.versioning.apiexplorer.5.1.0.nupkg.sha512"
+    },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
       "serviceable": true,
@@ -869,7 +903,7 @@
     "Microsoft.NET.Build.Containers/7.0.302": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FT+IWJ2d72WA7ls+0dNjiIb3KE6MkV8A5eLgVq1Z3a83EiaOXxi+HCATHQZaSojmigEyvKw9I5oyga8ZCl1nYw==",
+      "sha512": "sha512-aKDuE1mXPvs2IkMqrICz/+wQ8cyem1L02rq3x4ltJBo/FrVOzPw0pLEFocz7A4rF+R3W9wEcvi9jmX9IBOwpOQ==",
       "path": "microsoft.net.build.containers/7.0.302",
       "hashPath": "microsoft.net.build.containers.7.0.302.nupkg.sha512"
     },

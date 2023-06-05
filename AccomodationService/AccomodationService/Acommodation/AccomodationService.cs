@@ -1,9 +1,9 @@
 ﻿namespace BloodBankLibrary.Core.Accomodations
 {
-    public class AccomodationService : IAccomodationService
+    public class AccomodationServiceBE : IAccomodationService
     {
         private readonly IAccomodationRepository _accomodationRepository;
-        public AccomodationService(IAccomodationRepository accomodationRepository)
+        public AccomodationServiceBE(IAccomodationRepository accomodationRepository)
         {
             _accomodationRepository = accomodationRepository;
 

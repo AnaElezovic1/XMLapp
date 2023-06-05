@@ -13,6 +13,10 @@ namespace YourNamespace.Services
             this.accomodationRepository = accomodationRepository;
         }
 
+        public GRPCAccomodationService()
+        {
+        }
+
         public override Task<AccomodationList> GetAll(Empty request, ServerCallContext context)
         {
             AccomodationList list = new AccomodationList();
