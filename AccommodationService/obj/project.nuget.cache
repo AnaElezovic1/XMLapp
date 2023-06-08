@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8tLIdFYNcFwPbSVYQmUZ3i75rfLSnqEnjSjRmdd4gubWpNQ5ioJ22zmbhu/6qNu+z2fwTGB2MGpP93EMYOCTig==",
+  "dgSpecHash": "tNErqApGgqEYT8a3qLXFCTvN5+yFyxjZ8OZzmldc+eXpPqwSBU6ask80L9aXbgFkziE+8ZhccKkZxSP9jM3ygA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dobrosav\\Desktop\\Backend\\AccommodationService\\AccommodationService.csproj",
+  "projectFilePath": "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dobrosav\\.nuget\\packages\\abp\\8.1.0\\abp.8.1.0.nupkg.sha512",
     "C:\\Users\\Dobrosav\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",

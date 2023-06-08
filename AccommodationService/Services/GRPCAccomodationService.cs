@@ -8,10 +8,11 @@ namespace YourNamespace.Services
     {
         private readonly IAccomodationRepository accomodationRepository;
 
-        public GRPCAccomodationService(IAccomodationRepository accomodationRepository = null)
+        public GRPCAccomodationService(IAccomodationRepository accomodationRepository)
         {
-            this.accomodationRepository = accomodationRepository ?? new AccomodationRepository(null);
+            this.accomodationRepository = accomodationRepository;
         }
+
 
         public override Task<AccomodationList> GetAll(Empty request, ServerCallContext context)
         {

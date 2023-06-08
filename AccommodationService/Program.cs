@@ -20,7 +20,6 @@ namespace AccommodationService
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                //    services.AddHostedService<ClientScheduledService>();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

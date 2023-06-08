@@ -24,9 +24,10 @@ namespace AccommodationService
         {
             services.AddControllers();
             services.AddDbContext<WSDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")));
-            services.AddScoped<IAccomodationRepository, AccomodationRepository>();
-            services.AddScoped<IAccomodationService, AccomodationServiceBE>();
+         options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")), ServiceLifetime.Singleton); 
+            services.AddSingleton<IAccomodationRepository, AccomodationRepository>();
+            services.AddSingleton<IAccomodationService, AccomodationServiceBE>();
+            services.AddSingleton<GRPCAccomodationService>();
             services.AddGrpc();
             services.AddMemoryCache();
             services.AddDistributedMemoryCache();
@@ -69,11 +70,16 @@ namespace AccommodationService
 
             server = new Server
             {
-                Services = { AccomodationService.BindService(new GRPCAccomodationService()) },
+                Services = { AccomodationService.BindService(app.ApplicationServices.GetService<GRPCAccomodationService>()) },
                 Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
+                
             };
+            foreach (ServerPort s in server.Ports)
+            {
+                Console.WriteLine(s.Credentials);
+            }
             server.Start();
-
+            
             applicationLifetime.ApplicationStopping.Register(OnShutdown);
 
         }

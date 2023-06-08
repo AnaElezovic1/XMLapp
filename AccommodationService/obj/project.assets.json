@@ -8901,11 +8901,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dobrosav\\Desktop\\Backend\\AccommodationService\\AccommodationService.csproj",
+      "projectUniqueName": "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
       "projectName": "AccommodationService",
-      "projectPath": "C:\\Users\\Dobrosav\\Desktop\\Backend\\AccommodationService\\AccommodationService.csproj",
+      "projectPath": "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
       "packagesPath": "C:\\Users\\Dobrosav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dobrosav\\Desktop\\Backend\\AccommodationService\\obj\\",
+      "outputPath": "F:\\XMLapp\\AccommodationService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dobrosav\\AppData\\Roaming\\NuGet\\NuGet.Config",
