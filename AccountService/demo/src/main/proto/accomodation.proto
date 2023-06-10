@@ -1,0 +1,33 @@
+
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package com.example.demo.accomodation;
+option java_multiple_files = true;
+option java_outer_classname = "AccomodationProto";
+
+message Accomodation {
+  int32 id = 1;
+  string name = 2;
+  string description=3;
+   string location=4;
+  string images=5;
+  int32 beds=6;
+}
+
+service AccomodationService {
+
+  rpc GetAll (google.protobuf.Empty) returns (AccomodationList);
+  rpc GetById (AccomodationId) returns (Accomodation);
+  rpc Create (Accomodation) returns (google.protobuf.Empty);
+  rpc Delete (Accomodation) returns (google.protobuf.Empty);
+  rpc Update (Accomodation) returns (google.protobuf.Empty);
+}
+
+message AccomodationId {
+  int32 id = 1;
+}
+
+message AccomodationList {
+  repeated Accomodation accomodations = 1;
+}
