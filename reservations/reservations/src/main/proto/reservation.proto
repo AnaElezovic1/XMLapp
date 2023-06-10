@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package com.example.demo.reservation;
+option java_multiple_files = true;
+option java_outer_classname = "ReservationsProto";
+
+
+message ReservationDto {
+  string accommodation_id = 1;
+  string startTime = 2;
+  string endTime = 3;
+  int32 numberOfGuest = 4;
+  // Dodajte ostala polja po potrebi
+}
+
+message RequestReservation {
+  string startTime = 1;
+  string endTime = 2;
+  int32 numberOfGuest = 3;
+  bool approve = 4;
+  Accommodation accommodation = 5;
+}
+
+message Reservation {
+  RequestReservation requestReservation = 1;
+}
+
+message Accommodation {
+  string id = 1;
+}
+
+message Automatically {
+  bool automaticApproval = 1;
+}
+
+service ReservationService {
+  rpc CreateRequestReservation(CreateRequestReservationRequest) returns (google.protobuf.Empty) {}
+  rpc DeleteRequest(DeleteRequestRequest) returns (google.protobuf.Empty) {}
+  rpc CreateReservation(CreateReservationRequest) returns (google.protobuf.Empty) {}
+  rpc CancelReservation(CancelReservationRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateAutomatically(UpdateAutomaticallyRequest) returns (google.protobuf.Empty) {}
+  rpc GetRequestReservations(GetRequestReservationsRequest) returns (GetRequestReservationsResponse) {}
+  rpc GetDeclineReservation(GetDeclineReservationRequest) returns (GetDeclineReservationResponse) {}
+  rpc ApproveRequest(ApproveRequestRequest) returns (google.protobuf.Empty) {}
+  rpc DeclineRequest(DeclineRequestRequest) returns (google.protobuf.Empty) {}
+}
+
+message CreateRequestReservationRequest {
+  ReservationDto reservationDto = 1;
+  int64 automaticallyId = 2;
+}
+
+message DeleteRequestRequest {
+  int64 id = 1;
+}
+
+message CreateReservationRequest {
+  int64 id = 1;
+}
+
+message CancelReservationRequest {
+  int64 id = 1;
+  int64 hostId = 2;
+}
+
+message UpdateAutomaticallyRequest {
+  int64 id = 1;
+}
+
+message GetRequestReservationsRequest {}
+
+message GetRequestReservationsResponse {
+  repeated RequestReservation requestReservations = 1;
+}
+
+message GetDeclineReservationRequest {
+  int64 hostId = 1;
+}
+
+message GetDeclineReservationResponse {
+  int32 declineReservation = 1;
+}
+
+message ApproveRequestRequest {
+  int64 automaticallyId = 1;
+  int64 requestId = 2;
+}
+
+message DeclineRequestRequest {
+  int64 automaticallyId = 1;
+  int64 requestId = 2;
+}
