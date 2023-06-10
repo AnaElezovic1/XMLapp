@@ -2,8 +2,12 @@ package com.example.demo.service;
 
 import com.example.demo.model.UserApp;
 import com.example.demo.repository.UserAppRepository;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.reservations.reservation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,11 +16,13 @@ import java.util.Optional;
 public class UserService {
 
 
-    private final UserAppRepository userRepository;
+   private final UserAppRepository userRepository;
+
 
     @Autowired
     public UserService(UserAppRepository userRepository) {
         this.userRepository = userRepository;
+
     }
 
     public void addNewUser(UserApp users){
@@ -33,6 +39,8 @@ public class UserService {
     }
 
     public void deleteUser(Long userId){
+
+
         userRepository.deleteById(userId);
     }
 
