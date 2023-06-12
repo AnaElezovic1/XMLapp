@@ -1,0 +1,2 @@
+obj\Debug\net6.0\Protos/Accommodation.cs \
+obj\Debug\net6.0\Protos/AccommodationGrpc.cs: Protos/accommodation.proto
