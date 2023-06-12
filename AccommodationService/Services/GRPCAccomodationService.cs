@@ -1,6 +1,7 @@
 using BloodBankLibrary.Core.Accomodations;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using Microsoft.Extensions.Hosting;
 
 namespace YourNamespace.Services
 {
@@ -13,6 +14,9 @@ namespace YourNamespace.Services
             this.accomodationRepository = accomodationRepository;
         }
 
+        public GRPCAccomodationService()
+        {
+        }
 
         public override Task<AccomodationList> GetAll(Empty request, ServerCallContext context)
         {
@@ -27,6 +31,7 @@ namespace YourNamespace.Services
                 acc1.Beds = bE.Beds;
                 acc1.Name = bE.Name;
                 acc1.Images = bE.Images;
+                acc1.HostId = bE.HostId;
                 list.Accomodations.Add(acc1);
             }
             return Task.FromResult(list);
@@ -42,6 +47,7 @@ namespace YourNamespace.Services
             acc1.Beds = accomodationBE.Beds;
             acc1.Name = accomodationBE.Name;
             acc1.Images = accomodationBE.Images;
+            acc1.HostId = accomodationBE.HostId;
             return Task.FromResult(acc1);
 
         }
@@ -54,6 +60,7 @@ namespace YourNamespace.Services
             accomodationBE.Beds = request.Beds;
             accomodationBE.Name = request.Name;
             accomodationBE.Images = request.Images;
+            accomodationBE.HostId = request.HostId;
             accomodationRepository.Create(accomodationBE);
             return Task.FromResult(new Empty());
         }
@@ -66,7 +73,20 @@ namespace YourNamespace.Services
             accomodationBE.Beds = request.Beds;
             accomodationBE.Name = request.Name;
             accomodationBE.Images = request.Images;
+            accomodationBE.HostId = request.HostId;
             accomodationRepository.Delete(accomodationBE);
+            return Task.FromResult(new Empty());
+
+        }
+        public Task<Empty> DeleteAllByHostId(HostId request, ServerCallContext context)
+        {
+
+            foreach (AccomodationBE bE in accomodationRepository.GetAll())
+            {
+                if(bE.HostId==request.Id)
+                accomodationRepository.Delete(bE);
+
+            }
             return Task.FromResult(new Empty());
 
         }

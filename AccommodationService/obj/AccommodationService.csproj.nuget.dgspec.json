@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj": {}
+    "E:\\XMLapp\\AccommodationService\\AccommodationService.csproj": {}
   },
   "projects": {
-    "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj": {
+    "E:\\XMLapp\\AccommodationService\\AccommodationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
+        "projectUniqueName": "E:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
         "projectName": "AccommodationService",
-        "projectPath": "F:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
+        "projectPath": "E:\\XMLapp\\AccommodationService\\AccommodationService.csproj",
         "packagesPath": "C:\\Users\\Dobrosav\\.nuget\\packages\\",
-        "outputPath": "F:\\XMLapp\\AccommodationService\\obj\\",
+        "outputPath": "E:\\XMLapp\\AccommodationService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dobrosav\\AppData\\Roaming\\NuGet\\NuGet.Config",

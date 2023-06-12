@@ -11,7 +11,7 @@ namespace BloodBankLibrary.Core.Accomodations
         private string location;
         private string images;
         private int beds;
-
+        private int hostId;
         public AccomodationBE()
         {
         }
@@ -22,5 +22,6 @@ namespace BloodBankLibrary.Core.Accomodations
         public string Location { get => location; set => location = value; }
         public string Images { get => images; set => images = value; }
         public int Beds { get => beds; set => beds = value; }
+        public int HostId { get => hostId; set => hostId = value; }
     }
 }
