@@ -1,3 +1,3 @@
 obj\Debug\net6.0\Protos/Accomodation.cs \
-obj\Debug\net6.0\Protos/AccomodationGrpc.cs: C:/Users/Dobrosav/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/empty.proto\
+obj\Debug\net6.0\Protos/AccomodationGrpc.cs: C:/Users/count/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/empty.proto\
  Protos/accomodation.proto

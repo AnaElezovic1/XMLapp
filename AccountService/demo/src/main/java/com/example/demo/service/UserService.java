@@ -1,7 +1,12 @@
 package com.example.demo.service;
 
+import BloodBankAPI.GetAllByGuestIdRequest;
+import BloodBankAPI.GetAllByGuestIdResponse;
+import BloodBankAPI.ReservationServiceGrpc;
 import com.example.demo.model.UserApp;
 import com.example.demo.repository.UserAppRepository;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +17,14 @@ import java.util.Optional;
 public class UserService {
 
 
+    private final ReservationServiceGrpc.ReservationServiceBlockingStub reservationServiceStub;
     private final UserAppRepository userRepository;
 
     @Autowired
     public UserService(UserAppRepository userRepository) {
         this.userRepository = userRepository;
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 4311).usePlaintext().build();
+        this.reservationServiceStub = ReservationServiceGrpc.newBlockingStub(channel);
     }
 
     public void addNewUser(UserApp users){
@@ -33,7 +41,23 @@ public class UserService {
     }
 
     public void deleteUser(Long userId){
-        userRepository.deleteById(userId);
+
+        GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+                .setGuestId(Math.toIntExact(userId))
+                .build();
+
+        GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+
+        if(response.getReservationsList().isEmpty()){
+            this.
+                    userRepository.deleteById(userId);
+            System.out.println("Nalog je uspešno obrisan.");
+        } else {
+            // Ima aktivnih rezervacija, ne možemo obrisati nalog
+            System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
+        }
+
+
     }
 
     public UserApp login(String username, String password) {
