@@ -52,6 +52,8 @@ public static partial class AccomodationService
   static readonly grpc::Marshaller<global::AccomodationId> __Marshaller_AccomodationId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::AccomodationId.Parser));
   [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
   static readonly grpc::Marshaller<global::Accomodation> __Marshaller_Accomodation = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Accomodation.Parser));
+  [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+  static readonly grpc::Marshaller<global::HostId> __Marshaller_HostId = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::HostId.Parser));
 
   [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
   static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::AccomodationList> __Method_GetAll = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::AccomodationList>(
@@ -91,6 +93,14 @@ public static partial class AccomodationService
       __ServiceName,
       "Update",
       __Marshaller_Accomodation,
+      __Marshaller_google_protobuf_Empty);
+
+  [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+  static readonly grpc::Method<global::HostId, global::Google.Protobuf.WellKnownTypes.Empty> __Method_DeleteAllByHostId = new grpc::Method<global::HostId, global::Google.Protobuf.WellKnownTypes.Empty>(
+      grpc::MethodType.Unary,
+      __ServiceName,
+      "DeleteAllByHostId",
+      __Marshaller_HostId,
       __Marshaller_google_protobuf_Empty);
 
   /// <summary>Service descriptor</summary>
@@ -133,6 +143,12 @@ public static partial class AccomodationService
       throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
     }
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> DeleteAllByHostId(global::HostId request, grpc::ServerCallContext context)
+    {
+      throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+    }
+
   }
 
   /// <summary>Creates service definition that can be registered with a server</summary>
@@ -145,7 +161,8 @@ public static partial class AccomodationService
         .AddMethod(__Method_GetById, serviceImpl.GetById)
         .AddMethod(__Method_Create, serviceImpl.Create)
         .AddMethod(__Method_Delete, serviceImpl.Delete)
-        .AddMethod(__Method_Update, serviceImpl.Update).Build();
+        .AddMethod(__Method_Update, serviceImpl.Update)
+        .AddMethod(__Method_DeleteAllByHostId, serviceImpl.DeleteAllByHostId).Build();
   }
 
   /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -160,6 +177,7 @@ public static partial class AccomodationService
     serviceBinder.AddMethod(__Method_Create, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Accomodation, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.Create));
     serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Accomodation, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.Delete));
     serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Accomodation, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.Update));
+    serviceBinder.AddMethod(__Method_DeleteAllByHostId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::HostId, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.DeleteAllByHostId));
   }
 
 }

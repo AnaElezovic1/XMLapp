@@ -71,7 +71,7 @@ namespace AccommodationService
             server = new Server
             {
                 Services = { AccomodationService.BindService(app.ApplicationServices.GetService<GRPCAccomodationService>()) },
-                Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
+                Ports = { new ServerPort("localhost", 4211, ServerCredentials.Insecure) }
                 
             };
             foreach (ServerPort s in server.Ports)

@@ -25,6 +25,7 @@ service BookingService {
   rpc Delete(DeleteRequest) returns (DeleteResponse);
   rpc Update(UpdateRequest) returns (UpdateResponse);
   rpc GetByHostId(GetByIdRequest) returns (GetAllResponse);
+  rpc DeleteAllByHostId(GetByIdRequest) returns (GetAllResponse);
 }
 
 message GetAllRequest {}
@@ -65,4 +66,5 @@ message UpdateRequest {
 message UpdateResponse {
   Booking booking = 1;
 }
+
 

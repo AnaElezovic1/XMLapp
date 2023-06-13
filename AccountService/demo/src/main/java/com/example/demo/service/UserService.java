@@ -2,7 +2,13 @@ package com.example.demo.service;
 
 import BloodBankAPI.GetAllByGuestIdRequest;
 import BloodBankAPI.GetAllByGuestIdResponse;
+import BloodBankAPI.GetByIdResponse;
 import BloodBankAPI.ReservationServiceGrpc;
+import BloodBankLibrary.Core.Booking.Booking;
+import BloodBankLibrary.Core.Booking.BookingServiceGrpc;
+import BloodBankLibrary.Core.Booking.GetAllResponse;
+import BloodBankLibrary.Core.Booking.GetByIdRequest;
+import com.example.demo.model.Role;
 import com.example.demo.model.UserApp;
 import com.example.demo.repository.UserAppRepository;
 import io.grpc.ManagedChannel;
@@ -18,6 +24,8 @@ public class UserService {
 
 
     private final ReservationServiceGrpc.ReservationServiceBlockingStub reservationServiceStub;
+
+    private final BookingServiceGrpc.BookingServiceBlockingStub bookingServiceBlockingStub;
     private final UserAppRepository userRepository;
 
     @Autowired
@@ -25,6 +33,8 @@ public class UserService {
         this.userRepository = userRepository;
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 4311).usePlaintext().build();
         this.reservationServiceStub = ReservationServiceGrpc.newBlockingStub(channel);
+        ManagedChannel channel1 = ManagedChannelBuilder.forAddress("localhost",4111).usePlaintext().build();
+        this.bookingServiceBlockingStub = BookingServiceGrpc.newBlockingStub(channel1);
     }
 
     public void addNewUser(UserApp users){
@@ -42,20 +52,40 @@ public class UserService {
 
     public void deleteUser(Long userId){
 
-        GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
-                .setGuestId(Math.toIntExact(userId))
-                .build();
+        UserApp user = userRepository.getById(userId);
 
-        GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+        if(user.getRole() == Role.GOST){
+            GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+                    .setGuestId(Math.toIntExact(userId))
+                    .build();
 
-        if(response.getReservationsList().isEmpty()){
-            this.
-                    userRepository.deleteById(userId);
-            System.out.println("Nalog je uspešno obrisan.");
+            GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+
+            if(response.getReservationsList().isEmpty()){
+                this.userRepository.deleteById(userId);
+                System.out.println("Nalog je uspešno obrisan.");
+            } else {
+                // Ima aktivnih rezervacija, ne možemo obrisati nalog
+                System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
+            }
+        } else if(user.getRole() == Role.HOST){
+            GetByIdRequest request1 = GetByIdRequest.newBuilder()
+                    .setId(Math.toIntExact(userId))
+                    .build();
+            GetAllResponse response1 = bookingServiceBlockingStub.getByHostId(request1);
+            System.out.println("REZULTAT response1 ");
+            System.out.println(response1);
+            if(response1.getBookingsList().isEmpty()){
+                this.userRepository.deleteById(userId);
+            }
+
         } else {
-            // Ima aktivnih rezervacija, ne možemo obrisati nalog
-            System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
+            System.out.println(user.getId());
+            System.out.println(user.getRole());
+            System.out.println("Nalog ne može biti obrisan jer korisnik nema ulogu hosta");
         }
+
+
 
 
     }

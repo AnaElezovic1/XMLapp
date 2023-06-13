@@ -106,9 +106,12 @@ namespace YourNamespace.Services
         public override Task<GetAllResponse> GetByHostId(GetByIdRequest request, ServerCallContext context)
         {
             GetAllResponse list = new GetAllResponse();
-            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+            var channel = new Channel("localhost", 4211, ChannelCredentials.Insecure);
             var client = new AccomodationService.AccomodationServiceClient(channel);
-            var accommodation = client.GetAll(null);
+
+        
+
+            var accommodation = client.GetAll(new Empty());
             foreach (Accomodation ac in accommodation.Accomodations)
             {
                 if (ac.HostId == request.Id)
