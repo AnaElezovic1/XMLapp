@@ -42,7 +42,7 @@ namespace BloodBankLibrary.Core.Booking {
             "CgdtZXNzYWdlGAEgASgJIlQKDVVwZGF0ZVJlcXVlc3QSCgoCaWQYASABKAUS",
             "NwoHYm9va2luZxgCIAEoCzImLkJsb29kQmFua0xpYnJhcnkuQ29yZS5Cb29r",
             "aW5nLkJvb2tpbmciSQoOVXBkYXRlUmVzcG9uc2USNwoHYm9va2luZxgBIAEo",
-            "CzImLkJsb29kQmFua0xpYnJhcnkuQ29yZS5Cb29raW5nLkJvb2tpbmcygwUK",
+            "CzImLkJsb29kQmFua0xpYnJhcnkuQ29yZS5Cb29raW5nLkJvb2tpbmcy9gUK",
             "DkJvb2tpbmdTZXJ2aWNlEmUKBkdldEFsbBIsLkJsb29kQmFua0xpYnJhcnku",
             "Q29yZS5Cb29raW5nLkdldEFsbFJlcXVlc3QaLS5CbG9vZEJhbmtMaWJyYXJ5",
             "LkNvcmUuQm9va2luZy5HZXRBbGxSZXNwb25zZRJoCgdHZXRCeUlkEi0uQmxv",
@@ -57,7 +57,9 @@ namespace BloodBankLibrary.Core.Booking {
             "YW5rTGlicmFyeS5Db3JlLkJvb2tpbmcuVXBkYXRlUmVzcG9uc2USawoLR2V0",
             "QnlIb3N0SWQSLS5CbG9vZEJhbmtMaWJyYXJ5LkNvcmUuQm9va2luZy5HZXRC",
             "eUlkUmVxdWVzdBotLkJsb29kQmFua0xpYnJhcnkuQ29yZS5Cb29raW5nLkdl",
-            "dEFsbFJlc3BvbnNlYgZwcm90bzM="));
+            "dEFsbFJlc3BvbnNlEnEKEURlbGV0ZUFsbEJ5SG9zdElkEi0uQmxvb2RCYW5r",
+            "TGlicmFyeS5Db3JlLkJvb2tpbmcuR2V0QnlJZFJlcXVlc3QaLS5CbG9vZEJh",
+            "bmtMaWJyYXJ5LkNvcmUuQm9va2luZy5HZXRBbGxSZXNwb25zZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

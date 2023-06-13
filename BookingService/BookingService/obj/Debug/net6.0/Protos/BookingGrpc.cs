@@ -114,6 +114,14 @@ namespace BloodBankLibrary.Core.Booking {
         __Marshaller_BloodBankLibrary_Core_Booking_GetByIdRequest,
         __Marshaller_BloodBankLibrary_Core_Booking_GetAllResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::BloodBankLibrary.Core.Booking.GetByIdRequest, global::BloodBankLibrary.Core.Booking.GetAllResponse> __Method_DeleteAllByHostId = new grpc::Method<global::BloodBankLibrary.Core.Booking.GetByIdRequest, global::BloodBankLibrary.Core.Booking.GetAllResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "DeleteAllByHostId",
+        __Marshaller_BloodBankLibrary_Core_Booking_GetByIdRequest,
+        __Marshaller_BloodBankLibrary_Core_Booking_GetAllResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -156,6 +164,12 @@ namespace BloodBankLibrary.Core.Booking {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::BloodBankLibrary.Core.Booking.GetAllResponse> GetByHostId(global::BloodBankLibrary.Core.Booking.GetByIdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::BloodBankLibrary.Core.Booking.GetAllResponse> DeleteAllByHostId(global::BloodBankLibrary.Core.Booking.GetByIdRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -309,6 +323,26 @@ namespace BloodBankLibrary.Core.Booking {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetByHostId, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::BloodBankLibrary.Core.Booking.GetAllResponse DeleteAllByHostId(global::BloodBankLibrary.Core.Booking.GetByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteAllByHostId(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::BloodBankLibrary.Core.Booking.GetAllResponse DeleteAllByHostId(global::BloodBankLibrary.Core.Booking.GetByIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_DeleteAllByHostId, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::BloodBankLibrary.Core.Booking.GetAllResponse> DeleteAllByHostIdAsync(global::BloodBankLibrary.Core.Booking.GetByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return DeleteAllByHostIdAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::BloodBankLibrary.Core.Booking.GetAllResponse> DeleteAllByHostIdAsync(global::BloodBankLibrary.Core.Booking.GetByIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_DeleteAllByHostId, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override BookingServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -328,7 +362,8 @@ namespace BloodBankLibrary.Core.Booking {
           .AddMethod(__Method_Create, serviceImpl.Create)
           .AddMethod(__Method_Delete, serviceImpl.Delete)
           .AddMethod(__Method_Update, serviceImpl.Update)
-          .AddMethod(__Method_GetByHostId, serviceImpl.GetByHostId).Build();
+          .AddMethod(__Method_GetByHostId, serviceImpl.GetByHostId)
+          .AddMethod(__Method_DeleteAllByHostId, serviceImpl.DeleteAllByHostId).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -344,6 +379,7 @@ namespace BloodBankLibrary.Core.Booking {
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankLibrary.Core.Booking.DeleteRequest, global::BloodBankLibrary.Core.Booking.DeleteResponse>(serviceImpl.Delete));
       serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankLibrary.Core.Booking.UpdateRequest, global::BloodBankLibrary.Core.Booking.UpdateResponse>(serviceImpl.Update));
       serviceBinder.AddMethod(__Method_GetByHostId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankLibrary.Core.Booking.GetByIdRequest, global::BloodBankLibrary.Core.Booking.GetAllResponse>(serviceImpl.GetByHostId));
+      serviceBinder.AddMethod(__Method_DeleteAllByHostId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankLibrary.Core.Booking.GetByIdRequest, global::BloodBankLibrary.Core.Booking.GetAllResponse>(serviceImpl.DeleteAllByHostId));
     }
 
   }

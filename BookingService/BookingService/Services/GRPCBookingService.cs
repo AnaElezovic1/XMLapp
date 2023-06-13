@@ -58,7 +58,7 @@ namespace YourNamespace.Services
 
         }
 
-        public Task<Empty> Create(CreateRequest request, ServerCallContext context)
+        public override Task<CreateResponse> Create(CreateRequest request, ServerCallContext context)
         {
             BookingBE accomodationBE = new BookingBE();
             accomodationBE.Id = request.Booking.Id;
@@ -69,10 +69,10 @@ namespace YourNamespace.Services
             accomodationBE.Perperson = request.Booking.Perperson;
             accomodationBE.Price = request.Booking.Price;
             accomodationRepository.Create(accomodationBE);
-            return Task.FromResult(new Empty());
+            return Task.FromResult(new CreateResponse());
         }
 
-        public  Task<Empty> Delete(DeleteRequest request, ServerCallContext context)
+        public override Task<DeleteResponse> Delete(DeleteRequest request, ServerCallContext context)
         {
             
             BookingBE accomodationBE = new BookingBE();
@@ -84,10 +84,10 @@ namespace YourNamespace.Services
             accomodationBE.Perperson = request.Booking.Perperson;
             accomodationBE.Price = request.Booking.Price;
             accomodationRepository.Delete(accomodationBE);
-            return Task.FromResult(new Empty());
+            return Task.FromResult(new DeleteResponse());
 
         }
-        public Task<Empty> DeleteAllByHostId(HostId request, ServerCallContext context)
+        public override Task<GetAllResponse> DeleteAllByHostId(GetByIdRequest request, ServerCallContext context)
         {
             var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
             var client = new AccomodationService.AccomodationServiceClient(channel);
@@ -100,11 +100,37 @@ namespace YourNamespace.Services
                     }
 
             }
-            return Task.FromResult(new Empty());
+            return Task.FromResult(new GetAllResponse());
 
         }
+        public override Task<GetAllResponse> GetByHostId(GetByIdRequest request, ServerCallContext context)
+        {
+            GetAllResponse list = new GetAllResponse();
+            var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+            var client = new AccomodationService.AccomodationServiceClient(channel);
+            var accommodation = client.GetAll(null);
+            foreach (Accomodation ac in accommodation.Accomodations)
+            {
+                if (ac.HostId == request.Id)
+                    foreach (BookingBE bkng in accomodationRepository.GetAll().Where(e => e.AccommodationId == ac.Id))
+                    {
+                        Booking acc1 = new Booking();
+                        acc1.Id = bkng.Id;
+                        acc1.AccommodationId = bkng.AccommodationId;
+                        acc1.Autoaccept = bkng.Autoaccept;
+                        acc1.End = Timestamp.FromDateTime(bkng.End);
+                        acc1.Start = Timestamp.FromDateTime(bkng.Start);
+                        acc1.Perperson = bkng.Perperson;
+                        acc1.Price = bkng.Price;
 
-        public  Task<Empty> Update(UpdateRequest request, ServerCallContext context)
+                        list.Bookings.Add(acc1);
+                    }
+
+            }
+            return Task.FromResult(list);
+
+        }
+        public override Task<UpdateResponse> Update(UpdateRequest request, ServerCallContext context)
         {
             BookingBE accomodationBE = new BookingBE();
             accomodationBE.Id = request.Booking.Id;
@@ -115,7 +141,7 @@ namespace YourNamespace.Services
             accomodationBE.Perperson = request.Booking.Perperson;
             accomodationBE.Price = request.Booking.Price;
             accomodationRepository.Update(accomodationBE);
-            return Task.FromResult(new Empty());
+            return Task.FromResult(new UpdateResponse());
         }
     }
 }
