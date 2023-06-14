@@ -118,4 +118,32 @@ public class GRPCReservationService : BloodBankAPI.ReservationService.Reservatio
         };
         return reservationBE;
     }
+    public override async Task<GetAllAccommodationResponse> GetAllGuestAccommodations(GetAllByGuestIdRequest request, ServerCallContext context)
+    {
+        var list = new GetAllAccommodationResponse();
+        var channel = new Channel("localhost", 4211, ChannelCredentials.Insecure);
+        var client = new AccomodationService.AccomodationServiceClient(channel);
+        var accommodation = client.GetAll(new Empty());
+        var channelb = new Channel("localhost", 4111, ChannelCredentials.Insecure);
+        var clientb = new BookingService.BookingServiceClient(channel);
+        var bookings = clientb.GetAll(new BloodBankLibrary.Core.Booking.GetAllRequest());
+        var reservations = _accomodationService.GetAll();
+        foreach (var reservation in reservations)
+            foreach (var booking in bookings.Bookings)
+                foreach (var acc in accommodation.Accomodations)
+                    if (acc.Id == booking.AccommodationId && booking.Id == reservation.BookingId)
+                    {
+                        var acchelper = new BloodBankAPI.Accomodation();
+                        acchelper.Beds = acc.Beds;
+                        acchelper.Description = acc.Description;
+                        acchelper.HostId = acc.HostId;
+                        acchelper.Id = acc.Id;
+                        acchelper.Images = acc.Images;
+                        acchelper.Location = acc.Location;
+                        acchelper.Name = acc.Name;
+                       
+                        list.Accommodations.Add(acchelper);
+                    }
+        return list;
+    }
 }
