@@ -28,43 +28,52 @@ namespace BloodBankAPI {
             "Z2xlL3Byb3RvYnVmL3dyYXBwZXJzLnByb3RvGh9nb29nbGUvcHJvdG9idWYv",
             "dGltZXN0YW1wLnByb3RvImcKC1Jlc2VydmF0aW9uEgoKAmlkGAEgASgFEhAK",
             "CGd1ZXN0X2lkGAIgASgFEhIKCmJvb2tpbmdfaWQYAyABKAUSFAoMbm9fb2Zf",
-            "Z3Vlc3RzGAQgASgFEhAKCGFjY2VwdGVkGAUgASgIIg8KDUdldEFsbFJlcXVl",
-            "c3QiQQoOR2V0QWxsUmVzcG9uc2USLwoMcmVzZXJ2YXRpb25zGAEgAygLMhku",
-            "Qmxvb2RCYW5rQVBJLlJlc2VydmF0aW9uIhwKDkdldEJ5SWRSZXF1ZXN0EgoK",
-            "AmlkGAEgASgFIkEKD0dldEJ5SWRSZXNwb25zZRIuCgtyZXNlcnZhdGlvbhgB",
-            "IAEoCzIZLkJsb29kQmFua0FQSS5SZXNlcnZhdGlvbiIqChZHZXRBbGxCeUd1",
-            "ZXN0SWRSZXF1ZXN0EhAKCGd1ZXN0X2lkGAEgASgFIkoKF0dldEFsbEJ5R3Vl",
-            "c3RJZFJlc3BvbnNlEi8KDHJlc2VydmF0aW9ucxgBIAMoCzIZLkJsb29kQmFu",
-            "a0FQSS5SZXNlcnZhdGlvbiI/Cg1DcmVhdGVSZXF1ZXN0Ei4KC3Jlc2VydmF0",
-            "aW9uGAEgASgLMhkuQmxvb2RCYW5rQVBJLlJlc2VydmF0aW9uIj8KDkNyZWF0",
-            "ZVJlc3BvbnNlEi0KB21lc3NhZ2UYASABKAsyHC5nb29nbGUucHJvdG9idWYu",
-            "U3RyaW5nVmFsdWUiGwoNRGVsZXRlUmVxdWVzdBIKCgJpZBgBIAEoBSI/Cg5E",
-            "ZWxldGVSZXNwb25zZRItCgdtZXNzYWdlGAEgASgLMhwuZ29vZ2xlLnByb3Rv",
-            "YnVmLlN0cmluZ1ZhbHVlIioKFkRlbGV0ZUJ5R3Vlc3RJZFJlcXVlc3QSEAoI",
-            "Z3Vlc3RfaWQYASABKAUiSAoXRGVsZXRlQnlHdWVzdElkUmVzcG9uc2USLQoH",
-            "bWVzc2FnZRgBIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSJL",
-            "Cg1VcGRhdGVSZXF1ZXN0EgoKAmlkGAEgASgFEi4KC3Jlc2VydmF0aW9uGAIg",
-            "ASgLMhkuQmxvb2RCYW5rQVBJLlJlc2VydmF0aW9uIkAKDlVwZGF0ZVJlc3Bv",
-            "bnNlEi4KC3Jlc2VydmF0aW9uGAEgASgLMhkuQmxvb2RCYW5rQVBJLlJlc2Vy",
-            "dmF0aW9uMrAEChJSZXNlcnZhdGlvblNlcnZpY2USQwoGR2V0QWxsEhsuQmxv",
-            "b2RCYW5rQVBJLkdldEFsbFJlcXVlc3QaHC5CbG9vZEJhbmtBUEkuR2V0QWxs",
-            "UmVzcG9uc2USRgoHR2V0QnlJZBIcLkJsb29kQmFua0FQSS5HZXRCeUlkUmVx",
-            "dWVzdBodLkJsb29kQmFua0FQSS5HZXRCeUlkUmVzcG9uc2USXgoPR2V0QWxs",
-            "QnlHdWVzdElkEiQuQmxvb2RCYW5rQVBJLkdldEFsbEJ5R3Vlc3RJZFJlcXVl",
-            "c3QaJS5CbG9vZEJhbmtBUEkuR2V0QWxsQnlHdWVzdElkUmVzcG9uc2USQwoG",
-            "Q3JlYXRlEhsuQmxvb2RCYW5rQVBJLkNyZWF0ZVJlcXVlc3QaHC5CbG9vZEJh",
-            "bmtBUEkuQ3JlYXRlUmVzcG9uc2USQwoGRGVsZXRlEhsuQmxvb2RCYW5rQVBJ",
-            "LkRlbGV0ZVJlcXVlc3QaHC5CbG9vZEJhbmtBUEkuRGVsZXRlUmVzcG9uc2US",
-            "XgoPRGVsZXRlQnlHdWVzdElkEiQuQmxvb2RCYW5rQVBJLkRlbGV0ZUJ5R3Vl",
-            "c3RJZFJlcXVlc3QaJS5CbG9vZEJhbmtBUEkuRGVsZXRlQnlHdWVzdElkUmVz",
-            "cG9uc2USQwoGVXBkYXRlEhsuQmxvb2RCYW5rQVBJLlVwZGF0ZVJlcXVlc3Qa",
-            "HC5CbG9vZEJhbmtBUEkuVXBkYXRlUmVzcG9uc2ViBnByb3RvMw=="));
+            "Z3Vlc3RzGAQgASgFEhAKCGFjY2VwdGVkGAUgASgIIn0KDEFjY29tb2RhdGlv",
+            "bhIKCgJpZBgBIAEoBRIMCgRuYW1lGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMg",
+            "ASgJEhAKCGxvY2F0aW9uGAQgASgJEg4KBmltYWdlcxgFIAEoCRIMCgRiZWRz",
+            "GAYgASgFEg4KBmhvc3RJZBgHIAEoBSIPCg1HZXRBbGxSZXF1ZXN0IkEKDkdl",
+            "dEFsbFJlc3BvbnNlEi8KDHJlc2VydmF0aW9ucxgBIAMoCzIZLkJsb29kQmFu",
+            "a0FQSS5SZXNlcnZhdGlvbiJRChtHZXRBbGxBY2NvbW1vZGF0aW9uUmVzcG9u",
+            "c2USMgoOYWNjb21tb2RhdGlvbnMYASADKAsyGi5CbG9vZEJhbmtBUEkuQWNj",
+            "b21vZGF0aW9uIhwKDkdldEJ5SWRSZXF1ZXN0EgoKAmlkGAEgASgFIkEKD0dl",
+            "dEJ5SWRSZXNwb25zZRIuCgtyZXNlcnZhdGlvbhgBIAEoCzIZLkJsb29kQmFu",
+            "a0FQSS5SZXNlcnZhdGlvbiIqChZHZXRBbGxCeUd1ZXN0SWRSZXF1ZXN0EhAK",
+            "CGd1ZXN0X2lkGAEgASgFIkoKF0dldEFsbEJ5R3Vlc3RJZFJlc3BvbnNlEi8K",
+            "DHJlc2VydmF0aW9ucxgBIAMoCzIZLkJsb29kQmFua0FQSS5SZXNlcnZhdGlv",
+            "biI/Cg1DcmVhdGVSZXF1ZXN0Ei4KC3Jlc2VydmF0aW9uGAEgASgLMhkuQmxv",
+            "b2RCYW5rQVBJLlJlc2VydmF0aW9uIj8KDkNyZWF0ZVJlc3BvbnNlEi0KB21l",
+            "c3NhZ2UYASABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUiGwoN",
+            "RGVsZXRlUmVxdWVzdBIKCgJpZBgBIAEoBSI/Cg5EZWxldGVSZXNwb25zZRIt",
+            "CgdtZXNzYWdlGAEgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "IioKFkRlbGV0ZUJ5R3Vlc3RJZFJlcXVlc3QSEAoIZ3Vlc3RfaWQYASABKAUi",
+            "SAoXRGVsZXRlQnlHdWVzdElkUmVzcG9uc2USLQoHbWVzc2FnZRgBIAEoCzIc",
+            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSJLCg1VcGRhdGVSZXF1ZXN0",
+            "EgoKAmlkGAEgASgFEi4KC3Jlc2VydmF0aW9uGAIgASgLMhkuQmxvb2RCYW5r",
+            "QVBJLlJlc2VydmF0aW9uIkAKDlVwZGF0ZVJlc3BvbnNlEi4KC3Jlc2VydmF0",
+            "aW9uGAEgASgLMhkuQmxvb2RCYW5rQVBJLlJlc2VydmF0aW9uMp4FChJSZXNl",
+            "cnZhdGlvblNlcnZpY2USQwoGR2V0QWxsEhsuQmxvb2RCYW5rQVBJLkdldEFs",
+            "bFJlcXVlc3QaHC5CbG9vZEJhbmtBUEkuR2V0QWxsUmVzcG9uc2USRgoHR2V0",
+            "QnlJZBIcLkJsb29kQmFua0FQSS5HZXRCeUlkUmVxdWVzdBodLkJsb29kQmFu",
+            "a0FQSS5HZXRCeUlkUmVzcG9uc2USXgoPR2V0QWxsQnlHdWVzdElkEiQuQmxv",
+            "b2RCYW5rQVBJLkdldEFsbEJ5R3Vlc3RJZFJlcXVlc3QaJS5CbG9vZEJhbmtB",
+            "UEkuR2V0QWxsQnlHdWVzdElkUmVzcG9uc2USQwoGQ3JlYXRlEhsuQmxvb2RC",
+            "YW5rQVBJLkNyZWF0ZVJlcXVlc3QaHC5CbG9vZEJhbmtBUEkuQ3JlYXRlUmVz",
+            "cG9uc2USQwoGRGVsZXRlEhsuQmxvb2RCYW5rQVBJLkRlbGV0ZVJlcXVlc3Qa",
+            "HC5CbG9vZEJhbmtBUEkuRGVsZXRlUmVzcG9uc2USXgoPRGVsZXRlQnlHdWVz",
+            "dElkEiQuQmxvb2RCYW5rQVBJLkRlbGV0ZUJ5R3Vlc3RJZFJlcXVlc3QaJS5C",
+            "bG9vZEJhbmtBUEkuRGVsZXRlQnlHdWVzdElkUmVzcG9uc2USQwoGVXBkYXRl",
+            "EhsuQmxvb2RCYW5rQVBJLlVwZGF0ZVJlcXVlc3QaHC5CbG9vZEJhbmtBUEku",
+            "VXBkYXRlUmVzcG9uc2USbAoZR2V0QWxsR3Vlc3RBY2NvbW1vZGF0aW9ucxIk",
+            "LkJsb29kQmFua0FQSS5HZXRBbGxCeUd1ZXN0SWRSZXF1ZXN0GikuQmxvb2RC",
+            "YW5rQVBJLkdldEFsbEFjY29tbW9kYXRpb25SZXNwb25zZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.Reservation), global::BloodBankAPI.Reservation.Parser, new[]{ "Id", "GuestId", "BookingId", "NoOfGuests", "Accepted" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.Accomodation), global::BloodBankAPI.Accomodation.Parser, new[]{ "Id", "Name", "Description", "Location", "Images", "Beds", "HostId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.GetAllRequest), global::BloodBankAPI.GetAllRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.GetAllResponse), global::BloodBankAPI.GetAllResponse.Parser, new[]{ "Reservations" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.GetAllAccommodationResponse), global::BloodBankAPI.GetAllAccommodationResponse.Parser, new[]{ "Accommodations" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.GetByIdRequest), global::BloodBankAPI.GetByIdRequest.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.GetByIdResponse), global::BloodBankAPI.GetByIdResponse.Parser, new[]{ "Reservation" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::BloodBankAPI.GetAllByGuestIdRequest), global::BloodBankAPI.GetAllByGuestIdRequest.Parser, new[]{ "GuestId" }, null, null, null, null),
@@ -420,6 +429,417 @@ namespace BloodBankAPI {
 
   }
 
+  public sealed partial class Accomodation : pb::IMessage<Accomodation>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Accomodation> _parser = new pb::MessageParser<Accomodation>(() => new Accomodation());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<Accomodation> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Accomodation() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Accomodation(Accomodation other) : this() {
+      id_ = other.id_;
+      name_ = other.name_;
+      description_ = other.description_;
+      location_ = other.location_;
+      images_ = other.images_;
+      beds_ = other.beds_;
+      hostId_ = other.hostId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public Accomodation Clone() {
+      return new Accomodation(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "description" field.</summary>
+    public const int DescriptionFieldNumber = 3;
+    private string description_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Description {
+      get { return description_; }
+      set {
+        description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "location" field.</summary>
+    public const int LocationFieldNumber = 4;
+    private string location_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Location {
+      get { return location_; }
+      set {
+        location_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "images" field.</summary>
+    public const int ImagesFieldNumber = 5;
+    private string images_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Images {
+      get { return images_; }
+      set {
+        images_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "beds" field.</summary>
+    public const int BedsFieldNumber = 6;
+    private int beds_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Beds {
+      get { return beds_; }
+      set {
+        beds_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "hostId" field.</summary>
+    public const int HostIdFieldNumber = 7;
+    private int hostId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int HostId {
+      get { return hostId_; }
+      set {
+        hostId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as Accomodation);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(Accomodation other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (Name != other.Name) return false;
+      if (Description != other.Description) return false;
+      if (Location != other.Location) return false;
+      if (Images != other.Images) return false;
+      if (Beds != other.Beds) return false;
+      if (HostId != other.HostId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Description.Length != 0) hash ^= Description.GetHashCode();
+      if (Location.Length != 0) hash ^= Location.GetHashCode();
+      if (Images.Length != 0) hash ^= Images.GetHashCode();
+      if (Beds != 0) hash ^= Beds.GetHashCode();
+      if (HostId != 0) hash ^= HostId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Description);
+      }
+      if (Location.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Location);
+      }
+      if (Images.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Images);
+      }
+      if (Beds != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Beds);
+      }
+      if (HostId != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(HostId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Description);
+      }
+      if (Location.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Location);
+      }
+      if (Images.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Images);
+      }
+      if (Beds != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Beds);
+      }
+      if (HostId != 0) {
+        output.WriteRawTag(56);
+        output.WriteInt32(HostId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Description.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
+      }
+      if (Location.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Location);
+      }
+      if (Images.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Images);
+      }
+      if (Beds != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Beds);
+      }
+      if (HostId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HostId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(Accomodation other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Description.Length != 0) {
+        Description = other.Description;
+      }
+      if (other.Location.Length != 0) {
+        Location = other.Location;
+      }
+      if (other.Images.Length != 0) {
+        Images = other.Images;
+      }
+      if (other.Beds != 0) {
+        Beds = other.Beds;
+      }
+      if (other.HostId != 0) {
+        HostId = other.HostId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 26: {
+            Description = input.ReadString();
+            break;
+          }
+          case 34: {
+            Location = input.ReadString();
+            break;
+          }
+          case 42: {
+            Images = input.ReadString();
+            break;
+          }
+          case 48: {
+            Beds = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            HostId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 26: {
+            Description = input.ReadString();
+            break;
+          }
+          case 34: {
+            Location = input.ReadString();
+            break;
+          }
+          case 42: {
+            Images = input.ReadString();
+            break;
+          }
+          case 48: {
+            Beds = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            HostId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class GetAllRequest : pb::IMessage<GetAllRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -434,7 +854,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[1]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -586,7 +1006,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[2]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -750,6 +1170,184 @@ namespace BloodBankAPI {
 
   }
 
+  public sealed partial class GetAllAccommodationResponse : pb::IMessage<GetAllAccommodationResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetAllAccommodationResponse> _parser = new pb::MessageParser<GetAllAccommodationResponse>(() => new GetAllAccommodationResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetAllAccommodationResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetAllAccommodationResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetAllAccommodationResponse(GetAllAccommodationResponse other) : this() {
+      accommodations_ = other.accommodations_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetAllAccommodationResponse Clone() {
+      return new GetAllAccommodationResponse(this);
+    }
+
+    /// <summary>Field number for the "accommodations" field.</summary>
+    public const int AccommodationsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::BloodBankAPI.Accomodation> _repeated_accommodations_codec
+        = pb::FieldCodec.ForMessage(10, global::BloodBankAPI.Accomodation.Parser);
+    private readonly pbc::RepeatedField<global::BloodBankAPI.Accomodation> accommodations_ = new pbc::RepeatedField<global::BloodBankAPI.Accomodation>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::BloodBankAPI.Accomodation> Accommodations {
+      get { return accommodations_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetAllAccommodationResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetAllAccommodationResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!accommodations_.Equals(other.accommodations_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= accommodations_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      accommodations_.WriteTo(output, _repeated_accommodations_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      accommodations_.WriteTo(ref output, _repeated_accommodations_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += accommodations_.CalculateSize(_repeated_accommodations_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetAllAccommodationResponse other) {
+      if (other == null) {
+        return;
+      }
+      accommodations_.Add(other.accommodations_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            accommodations_.AddEntriesFrom(input, _repeated_accommodations_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            accommodations_.AddEntriesFrom(ref input, _repeated_accommodations_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class GetByIdRequest : pb::IMessage<GetByIdRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -764,7 +1362,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[3]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -953,7 +1551,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[4]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1151,7 +1749,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[5]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1340,7 +1938,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[6]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1518,7 +2116,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[7]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1716,7 +2314,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[8]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1913,7 +2511,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[9]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2102,7 +2700,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[10]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2299,7 +2897,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[11]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2488,7 +3086,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[12]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2685,7 +3283,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[13]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2920,7 +3518,7 @@ namespace BloodBankAPI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[14]; }
+      get { return global::BloodBankAPI.ReservationReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

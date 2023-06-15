@@ -73,6 +73,8 @@ namespace BloodBankAPI {
     static readonly grpc::Marshaller<global::BloodBankAPI.UpdateRequest> __Marshaller_BloodBankAPI_UpdateRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BloodBankAPI.UpdateRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::BloodBankAPI.UpdateResponse> __Marshaller_BloodBankAPI_UpdateResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BloodBankAPI.UpdateResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::BloodBankAPI.GetAllAccommodationResponse> __Marshaller_BloodBankAPI_GetAllAccommodationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BloodBankAPI.GetAllAccommodationResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::BloodBankAPI.GetAllRequest, global::BloodBankAPI.GetAllResponse> __Method_GetAll = new grpc::Method<global::BloodBankAPI.GetAllRequest, global::BloodBankAPI.GetAllResponse>(
@@ -130,6 +132,14 @@ namespace BloodBankAPI {
         __Marshaller_BloodBankAPI_UpdateRequest,
         __Marshaller_BloodBankAPI_UpdateResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::BloodBankAPI.GetAllByGuestIdRequest, global::BloodBankAPI.GetAllAccommodationResponse> __Method_GetAllGuestAccommodations = new grpc::Method<global::BloodBankAPI.GetAllByGuestIdRequest, global::BloodBankAPI.GetAllAccommodationResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetAllGuestAccommodations",
+        __Marshaller_BloodBankAPI_GetAllByGuestIdRequest,
+        __Marshaller_BloodBankAPI_GetAllAccommodationResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -178,6 +188,12 @@ namespace BloodBankAPI {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::BloodBankAPI.UpdateResponse> Update(global::BloodBankAPI.UpdateRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::BloodBankAPI.GetAllAccommodationResponse> GetAllGuestAccommodations(global::BloodBankAPI.GetAllByGuestIdRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -351,6 +367,26 @@ namespace BloodBankAPI {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Update, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::BloodBankAPI.GetAllAccommodationResponse GetAllGuestAccommodations(global::BloodBankAPI.GetAllByGuestIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAllGuestAccommodations(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::BloodBankAPI.GetAllAccommodationResponse GetAllGuestAccommodations(global::BloodBankAPI.GetAllByGuestIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetAllGuestAccommodations, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::BloodBankAPI.GetAllAccommodationResponse> GetAllGuestAccommodationsAsync(global::BloodBankAPI.GetAllByGuestIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetAllGuestAccommodationsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::BloodBankAPI.GetAllAccommodationResponse> GetAllGuestAccommodationsAsync(global::BloodBankAPI.GetAllByGuestIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetAllGuestAccommodations, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override ReservationServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -371,7 +407,8 @@ namespace BloodBankAPI {
           .AddMethod(__Method_Create, serviceImpl.Create)
           .AddMethod(__Method_Delete, serviceImpl.Delete)
           .AddMethod(__Method_DeleteByGuestId, serviceImpl.DeleteByGuestId)
-          .AddMethod(__Method_Update, serviceImpl.Update).Build();
+          .AddMethod(__Method_Update, serviceImpl.Update)
+          .AddMethod(__Method_GetAllGuestAccommodations, serviceImpl.GetAllGuestAccommodations).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -388,6 +425,7 @@ namespace BloodBankAPI {
       serviceBinder.AddMethod(__Method_Delete, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankAPI.DeleteRequest, global::BloodBankAPI.DeleteResponse>(serviceImpl.Delete));
       serviceBinder.AddMethod(__Method_DeleteByGuestId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankAPI.DeleteByGuestIdRequest, global::BloodBankAPI.DeleteByGuestIdResponse>(serviceImpl.DeleteByGuestId));
       serviceBinder.AddMethod(__Method_Update, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankAPI.UpdateRequest, global::BloodBankAPI.UpdateResponse>(serviceImpl.Update));
+      serviceBinder.AddMethod(__Method_GetAllGuestAccommodations, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BloodBankAPI.GetAllByGuestIdRequest, global::BloodBankAPI.GetAllAccommodationResponse>(serviceImpl.GetAllGuestAccommodations));
     }
 
   }
