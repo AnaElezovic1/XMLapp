@@ -1,5 +1,6 @@
 package com.example.demo;
 
+
 import com.example.demo.Grpc.UserServiceGrpcImpl;
 import com.example.demo.service.UserService;
 import io.grpc.Server;
@@ -7,12 +8,12 @@ import io.grpc.ServerBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 
 @SpringBootApplication
 public class AccountServiceApplication {
+
 
     public static void main(String[] args) throws IOException, InterruptedException {
         int port = 50051; // Specificirajte broj porta za server
