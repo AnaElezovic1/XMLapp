@@ -3,6 +3,17 @@ using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Microsoft.Extensions.Hosting;
 using BloodBankLibrary.Core.Accomodations;
+using BloodBankAPI;
+using UpdateResponse = BloodBankLibrary.Core.Booking.UpdateResponse;
+using UpdateRequest = BloodBankLibrary.Core.Booking.UpdateRequest;
+using GetAllResponse = BloodBankLibrary.Core.Booking.GetAllResponse;
+using GetByIdRequest = BloodBankLibrary.Core.Booking.GetByIdRequest;
+using DeleteResponse = BloodBankLibrary.Core.Booking.DeleteResponse;
+using DeleteRequest = BloodBankLibrary.Core.Booking.DeleteRequest;
+using CreateResponse = BloodBankLibrary.Core.Booking.CreateResponse;
+using CreateRequest = BloodBankLibrary.Core.Booking.CreateRequest;
+using GetByIdResponse = BloodBankLibrary.Core.Booking.GetByIdResponse;
+using GetAllRequest = BloodBankLibrary.Core.Booking.GetAllRequest;
 
 namespace YourNamespace.Services
 {
@@ -143,6 +154,14 @@ namespace YourNamespace.Services
             accomodationBE.Start = request.Booking.Start.ToDateTime();
             accomodationBE.Perperson = request.Booking.Perperson;
             accomodationBE.Price = request.Booking.Price;
+            var channel = new Channel("localhost", 4311, ChannelCredentials.Insecure);
+            var client = new ReservationService.ReservationServiceClient(channel);
+            var reservations = client.GetAll(new BloodBankAPI.GetAllRequest());
+            foreach(var reservation in reservations.Reservations)
+            {
+                if (reservation.BookingId == request.Booking.Id)
+                    return Task.FromResult(new UpdateResponse());
+            }
             accomodationRepository.Update(accomodationBE);
             return Task.FromResult(new UpdateResponse());
         }

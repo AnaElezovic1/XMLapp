@@ -38,6 +38,7 @@
   <ItemGroup>
 	  	<Protobuf Include="Protos\accomodation.proto" GrpcServices="Both" />
 	  <Protobuf Include="Protos\booking.proto" GrpcServices="Both" />
+	  <Protobuf Include="Protos\reservation.proto" GrpcServices="Both" />
 
   </ItemGroup>
 
