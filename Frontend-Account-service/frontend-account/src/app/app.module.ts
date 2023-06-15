@@ -11,11 +11,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AccommodationListComponent } from './accommodation-list/accommodation-list.component';
 
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'user-profile', component: UserProfileComponent },
+  { path: 'accommodation-list', component: AccommodationListComponent},
 ];
 
 @NgModule({
@@ -24,14 +26,15 @@ const appRoutes: Routes = [
     RegistrationPageComponent,
     LoginPageComponent,
     UserProfileComponent,
+    AccommodationListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+   // AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
