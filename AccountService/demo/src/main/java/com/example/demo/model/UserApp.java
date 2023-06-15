@@ -1,12 +1,13 @@
 package com.example.demo.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -15,27 +16,69 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserApp  {
+@Builder
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"accountNonExpired", "credentialsNonExpired", "accountNonLocked", "authorities"})
+public class UserApp implements UserDetails {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(nullable=false,updatable=false)
-    private Long id;
+    @SequenceGenerator(name = "userAppSeqGen", sequenceName = "userAppSeq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "userAppSeqGen")
+    @Column(name="id", unique=true, nullable=false)
+    private long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String username;
 
-    //@JsonIgnore
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @JsonIgnore
     @Column
     private String password;
 
-    @Column
-    private String email;
+    private String passwordSalt;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Column
+    private String address;
+
+    @Column
+    private Boolean active = false;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     private Role role;
 
-    @Column
-    private String adress;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Arrays.asList(new SimpleGrantedAuthority(this.role.getName()));
+    }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return active;
+    }
 }

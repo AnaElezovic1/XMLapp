@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class userLogdto {
-    private String username;
-    private String password;
+public class UserTokenState {
+    private String accessToken;
+//    private String refreshToken;
+//    private int expiresIn;
 }
