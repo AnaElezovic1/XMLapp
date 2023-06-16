@@ -1,0 +1,10 @@
+<h2>Reservations</h2>
+<ul>
+  <li *ngFor="let reservation of reservations">
+    <span>ID:</span> {{ reservation.id }} <br>
+    <span>Guest ID:</span> {{ reservation.guestId }} <br>
+    <span>Booking ID:</span> {{ reservation.bookingId }} <br>
+    <span>No. of Guests:</span> {{ reservation.noOfGuests }} <br>
+    <span>Accepted:</span> {{ reservation.accepted ? 'Yes' : 'No' }} <br>
+  </li>
+</ul>

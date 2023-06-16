@@ -1,5 +1,5 @@
 export interface Accommodation {
-  id: number;
+  id: Number;
   name: string;
   description: string;
   location: string;

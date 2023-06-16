@@ -13,7 +13,7 @@ export class AccommodationService {
   constructor(private http: HttpClient) {}
 
   addUser(accommodation: Accommodation): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, accommodation);
+    return this.http.post<any>('https://localhost:5001/api/Accomodation', accommodation);
   }
 
   getAll(): Observable<any[]> {

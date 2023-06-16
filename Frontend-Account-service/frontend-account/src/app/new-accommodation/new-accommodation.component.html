@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="accommodation.name" [ngModelOptions]="{standalone: true}">
+<br>
+    <label>Description:</label>
+    <textarea [(ngModel)]="accommodation.description" [ngModelOptions]="{standalone: true}"></textarea>
+    <br>
+
+    <label>Location:</label>
+    <input type="text" [(ngModel)]="accommodation.location" [ngModelOptions]="{standalone: true}">
+    <br>
+
+    <label>Images:</label>
+    <input type="text" [(ngModel)]="accommodation.images" [ngModelOptions]="{standalone: true}">
+    <br>
+
+    <label>Beds:</label>
+    <input type="number" [(ngModel)]="accommodation.beds" [ngModelOptions]="{standalone: true}">
+  
+    <br>
+    <label>Min guests:</label>
+    <input type="number" >
+    <label>Max guests:</label>
+    <input type="number">
+  
+  
+    <button type="submit">Create Accommodation</button>
+  </form>

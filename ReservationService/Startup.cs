@@ -32,6 +32,11 @@ namespace AccommodationService
             services.AddMemoryCache();
             services.AddDistributedMemoryCache();
             services.AddMvcCore().AddApiExplorer();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder => builder.AllowAnyOrigin());
+            });
             // Add Swagger
             services.AddSwaggerGen(c =>
             {
@@ -59,7 +64,7 @@ namespace AccommodationService
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("AllowAllOrigins");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
