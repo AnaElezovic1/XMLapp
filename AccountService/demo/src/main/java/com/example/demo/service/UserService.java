@@ -51,40 +51,44 @@ public class UserService {
     }
 
     public void deleteUser(Long userId){
-
+//
+//        Optional<UserApp> userAppOptional = userRepository.findById(userId);
+//        if(userAppOptional.isPresent()) {
+//
+//            UserApp user = userAppOptional.get();
         UserApp user = userRepository.getById(userId);
 
-        if(user.getRole() == Role.GOST){
-            GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
-                    .setGuestId(Math.toIntExact(userId))
-                    .build();
+            if (user.getRole() == Role.GOST) {
+                GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+                        .setGuestId(Math.toIntExact(userId))
+                        .build();
 
-            GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+                GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
 
-            if(response.getReservationsList().isEmpty()){
-                this.userRepository.deleteById(userId);
-                System.out.println("Nalog je uspešno obrisan.");
+                if (response.getReservationsList().isEmpty()) {
+                    this.userRepository.deleteById(userId);
+                    System.out.println("Nalog je uspešno obrisan.");
+                } else {
+                    // Ima aktivnih rezervacija, ne možemo obrisati nalog
+                    System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
+                }
+            } else if (user.getRole() == Role.HOST) {
+                GetByIdRequest request1 = GetByIdRequest.newBuilder()
+                        .setId(Math.toIntExact(userId))
+                        .build();
+                GetAllResponse response1 = bookingServiceBlockingStub.getByHostId(request1);
+                System.out.println("REZULTAT response1 ");
+                System.out.println(response1);
+                if (response1.getBookingsList().isEmpty()) {
+                    this.userRepository.deleteById(userId);
+                }
+
             } else {
-                // Ima aktivnih rezervacija, ne možemo obrisati nalog
-                System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
+                System.out.println(user.getId());
+                System.out.println(user.getRole());
+                System.out.println("Nalog ne može biti obrisan jer korisnik nema ulogu hosta");
             }
-        } else if(user.getRole() == Role.HOST){
-            GetByIdRequest request1 = GetByIdRequest.newBuilder()
-                    .setId(Math.toIntExact(userId))
-                    .build();
-            GetAllResponse response1 = bookingServiceBlockingStub.getByHostId(request1);
-            System.out.println("REZULTAT response1 ");
-            System.out.println(response1);
-            if(response1.getBookingsList().isEmpty()){
-                this.userRepository.deleteById(userId);
-            }
-
-        } else {
-            System.out.println(user.getId());
-            System.out.println(user.getRole());
-            System.out.println("Nalog ne može biti obrisan jer korisnik nema ulogu hosta");
-        }
-
+//        }
 
 
 
