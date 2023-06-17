@@ -42,15 +42,22 @@ namespace BloodBankAPI
             services.AddGrpc();
             services.AddMvcCore().AddApiExplorer();
             services.AddControllers();
-
-            services.AddSwaggerGen(options =>
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            }); services.AddSwaggerGen(options =>
             {
 
 
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 
             });
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,10 +76,7 @@ namespace BloodBankAPI
                 app.UseDeveloperExceptionPage();
 
             }
-            app.UseCors(builder =>
-                builder.AllowAnyOrigin()
-               .AllowAnyHeader()
-           .AllowAnyMethod());
+            app.UseCors("AllowAll");
             app.UseRouting();
             app.UseSession();
             app.UseSwagger();

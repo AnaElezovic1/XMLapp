@@ -8,16 +8,16 @@ import { Accommodation } from '../model/accommodation';
   providedIn: 'root',
 })
 export class AccommodationService {
-  private baseUrl = 'http://localhost:5001/api/Accomodation';
+  private baseUrl = 'https://localhost:5001/api/Accomodation';
 
   constructor(private http: HttpClient) {}
 
   addUser(accommodation: Accommodation): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, accommodation);
+    return this.http.post<any>('https://localhost:5001/api/Accomodation', accommodation);
   }
 
   getAll(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:5001/api/Accomodation/');
+    return this.http.get<any[]>('https://localhost:5001/api/Accomodation');
   }
 
 }
