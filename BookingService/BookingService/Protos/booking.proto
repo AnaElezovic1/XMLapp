@@ -1,0 +1,64 @@
+syntax = "proto3";
+import "google/protobuf/Timestamp.proto";
+
+package BloodBankLibrary.Core.Booking;
+
+message Booking {
+  int32 id=1;
+     google.protobuf.Timestamp start=2;
+         google.protobuf.Timestamp end=3;
+         int32 price=4;
+         bool perperson=5;
+         bool autoaccept=6;
+         int32 accommodationId=7;
+
+}
+service BookingService {
+  rpc GetAll(GetAllRequest) returns (GetAllResponse);
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc GetByHostId(GetByIdRequest) returns (GetAllResponse);
+  rpc DeleteAllByHostId(GetByIdRequest) returns (GetAllResponse);
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated Booking bookings = 1;
+}
+
+message GetByIdRequest {
+  int32 id = 1;
+}
+
+message GetByIdResponse {
+  Booking booking = 1;
+}
+
+message CreateRequest {
+  Booking booking = 1;
+}
+
+message CreateResponse {
+  string message = 1;
+}
+
+message DeleteRequest {
+    Booking booking = 1;
+}
+
+message DeleteResponse {
+  string message = 1;
+}
+
+message UpdateRequest {
+  int32 id = 1;
+  Booking booking = 2;
+}
+
+message UpdateResponse {
+  Booking booking = 1;
+}
+

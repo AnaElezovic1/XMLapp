@@ -1,0 +1,29 @@
+<div>
+    <label for="search-beds">Beds:</label>
+    <input type="number" id="search-beds" [(ngModel)]="searchBeds">
+  </div>
+  
+  <div>
+    <label for="search-location">Location:</label>
+    <input type="text" id="search-location" [(ngModel)]="searchLocation">
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sort('name')">Name</th>
+        <th (click)="sort('description')">Description</th>
+        <th (click)="sort('location')">Location</th>
+        <th (click)="sort('beds')">Beds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let accommodation of filter()">
+        <td>{{ accommodation.name }}</td>
+        <td>{{ accommodation.description }}</td>
+        <td>{{ accommodation.location }}</td>
+        <td>{{ accommodation.beds }}</td>
+        <td><button>View available bookings</button></td>
+      </tr>
+    </tbody>
+  </table>
