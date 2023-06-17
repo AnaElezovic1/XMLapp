@@ -18,4 +18,5 @@ public interface UserAppRepository extends JpaRepository<UserApp, Long> {
 
     public List<UserApp> findUserAppsByActive(Boolean active);
 
+    List<UserApp> findUserByUsernameAndPassword(String username, String password);
 }
