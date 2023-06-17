@@ -79,11 +79,11 @@ public class UserService {
         UserApp user = userRepository.getById(userId);
 
         if(user.getRole().equals("GOST")){
-            ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
+            GetAllByGuestIdRequest request = .GetAllByGuestIdRequest.newBuilder()
                     .setGuestId(Math.toIntExact(userId))
                     .build();
 
-            ReservationOuterClass.GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+            GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
 
             if(response.getReservationsList().isEmpty()){
                 this.userRepository.deleteById(userId);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Korisnik\\Desktop\\xml\\XMLapp\\ReservationService\\ReservationService.csproj": {}
+    "C:\\Users\\Korisnik\\Desktop\\xml-projekat\\XMLapp\\ReservationService\\ReservationService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Korisnik\\Desktop\\xml\\XMLapp\\ReservationService\\ReservationService.csproj": {
+    "C:\\Users\\Korisnik\\Desktop\\xml-projekat\\XMLapp\\ReservationService\\ReservationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\xml\\XMLapp\\ReservationService\\ReservationService.csproj",
+        "projectUniqueName": "C:\\Users\\Korisnik\\Desktop\\xml-projekat\\XMLapp\\ReservationService\\ReservationService.csproj",
         "projectName": "ReservationService",
-        "projectPath": "C:\\Users\\Korisnik\\Desktop\\xml\\XMLapp\\ReservationService\\ReservationService.csproj",
+        "projectPath": "C:\\Users\\Korisnik\\Desktop\\xml-projekat\\XMLapp\\ReservationService\\ReservationService.csproj",
         "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Korisnik\\Desktop\\xml\\XMLapp\\ReservationService\\obj\\",
+        "outputPath": "C:\\Users\\Korisnik\\Desktop\\xml-projekat\\XMLapp\\ReservationService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
