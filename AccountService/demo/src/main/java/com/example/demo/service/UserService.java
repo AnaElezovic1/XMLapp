@@ -8,14 +8,22 @@ import BloodBankLibrary.Core.Booking.Booking;
 import BloodBankLibrary.Core.Booking.BookingServiceGrpc;
 import BloodBankLibrary.Core.Booking.GetAllResponse;
 import BloodBankLibrary.Core.Booking.GetByIdRequest;
+import com.example.demo.dto.RateDTO;
+import com.example.demo.model.Host;
+import com.example.demo.model.Rate;
 import com.example.demo.model.Role;
 import com.example.demo.model.UserApp;
+import com.example.demo.repository.HostRepository;
+import com.example.demo.repository.RateRepository;
 import com.example.demo.repository.UserAppRepository;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +35,12 @@ public class UserService {
 
     private final BookingServiceGrpc.BookingServiceBlockingStub bookingServiceBlockingStub;
     private final UserAppRepository userRepository;
+
+    @Autowired
+    private RateRepository rateRepository;
+
+    @Autowired
+    private HostRepository hostRepository;
 
     @Autowired
     public UserService(UserAppRepository userRepository) {
@@ -50,6 +64,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @Transactional
     public void deleteUser(Long userId){
 //
 //        Optional<UserApp> userAppOptional = userRepository.findById(userId);
@@ -58,42 +73,44 @@ public class UserService {
 //            UserApp user = userAppOptional.get();
         UserApp user = userRepository.getById(userId);
 
-            if (user.getRole() == Role.GOST) {
-                GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
-                        .setGuestId(Math.toIntExact(userId))
-                        .build();
+        if (user.getRole().equals("GOST")) {
+            GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+                    .setGuestId(Math.toIntExact(userId))
+                    .build();
 
-                GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+            GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
 
-                if (response.getReservationsList().isEmpty()) {
-                    this.userRepository.deleteById(userId);
-                    System.out.println("Nalog je uspešno obrisan.");
-                } else {
-                    // Ima aktivnih rezervacija, ne možemo obrisati nalog
-                    System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
-                }
-            } else if (user.getRole() == Role.HOST) {
-                GetByIdRequest request1 = GetByIdRequest.newBuilder()
-                        .setId(Math.toIntExact(userId))
-                        .build();
-                GetAllResponse response1 = bookingServiceBlockingStub.getByHostId(request1);
-                System.out.println("REZULTAT response1 ");
-                System.out.println(response1);
-                if (response1.getBookingsList().isEmpty()) {
-                    this.userRepository.deleteById(userId);
-                }
-
+            if (response.getReservationsList().isEmpty()) {
+                this.userRepository.deleteById(userId);
+                System.out.println("Nalog je uspešno obrisan.");
             } else {
-                System.out.println(user.getId());
-                System.out.println(user.getRole());
-                System.out.println("Nalog ne može biti obrisan jer korisnik nema ulogu hosta");
+                // Ima aktivnih rezervacija, ne možemo obrisati nalog
+                System.out.println("Nalog ne može biti obrisan jer postoje aktivne rezervacije ili nisi ukljucio drugi server.");
             }
+        } else if (user.getRole().equals("HOST")) {
+            GetByIdRequest request1 = GetByIdRequest.newBuilder()
+                    .setId(Math.toIntExact(userId))
+                    .build();
+            GetAllResponse response1 = bookingServiceBlockingStub.getByHostId(request1);
+            System.out.println("REZULTAT response1 ");
+            System.out.println(response1);
+            if (response1.getBookingsList().isEmpty()) {
+                this.userRepository.deleteById(userId);
+            }
+
+        } else {
+            System.out.println(user.getId());
+            System.out.println(user.getRole());
+            System.out.println("Nalog ne može biti obrisan jer korisnik nema ulogu hosta");
+        }
 //        }
 
 
 
     }
 
+//    ocenjivanje hosta
+    
     public UserApp login(String username, String password) {
         List<UserApp> users = userRepository.findUserByUsernameAndPassword(username, password);
         if (users.isEmpty()) {

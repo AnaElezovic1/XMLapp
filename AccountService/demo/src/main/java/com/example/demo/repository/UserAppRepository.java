@@ -12,8 +12,11 @@ import java.util.List;
 public interface UserAppRepository extends JpaRepository<UserApp, Long> {
     public UserApp findByUsername(String username);
 
-    @Query("Select u FROM UserApp u WHERE u.username = ?1 and u.password = ?2")
+    public boolean existsByUsernameOrEmail(String username, String email);
+
+    public UserApp findByEmail(String email);
+
+    public List<UserApp> findUserAppsByActive(Boolean active);
+
     List<UserApp> findUserByUsernameAndPassword(String username, String password);
-
-
 }

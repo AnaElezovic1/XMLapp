@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/nB2QUe5s+C8hAwUm1DGHqz2uZN15gk22PGDm8ao/7Jpy65Mt6DjPhYrsQrAHI61Q/GCOdeaowzvpWa259p4GQ==",
+  "dgSpecHash": "Cz/ej8UKPffNfE9XukJkL4wgl4AbocmCp0GwECsRGpKFK5rtYgOXTaDjX7qcO9NjArcKOEPxYMq9RvbUg2C91g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Korisnik\\Desktop\\xml-projekat\\XMLapp\\ReservationService\\ReservationService.csproj",
+  "projectFilePath": "C:\\Users\\Korisnik\\Desktop\\xml\\XMLapp\\ReservationService\\ReservationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Korisnik\\.nuget\\packages\\abp\\8.1.0\\abp.8.1.0.nupkg.sha512",
     "C:\\Users\\Korisnik\\.nuget\\packages\\automatonymous\\5.1.3\\automatonymous.5.1.3.nupkg.sha512",
