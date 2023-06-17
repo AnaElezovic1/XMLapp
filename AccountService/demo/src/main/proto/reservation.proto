@@ -5,9 +5,6 @@ package BloodBankAPI;
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
-option java_multiple_files = true;
-option java_outer_classname = "ReservationProto";
-
 message Reservation {
   int32 id = 1;
   int32 guest_id = 2;
@@ -15,13 +12,24 @@ message Reservation {
   int32 no_of_guests = 4;
   bool accepted = 5;
 }
+message Accomodation {
+  int32 id = 1;
+  string name = 2;
+  string description=3;
+  string location=4;
+  string images=5;
+  int32 beds=6;
+  int32 hostId=7;
+}
 
 message GetAllRequest {}
 
 message GetAllResponse {
   repeated Reservation reservations = 1;
 }
-
+message GetAllAccommodationResponse {
+  repeated Accomodation accommodations = 1;
+}
 message GetByIdRequest {
   int32 id = 1;
 }
@@ -79,4 +87,5 @@ service ReservationService {
   rpc Delete (DeleteRequest) returns (DeleteResponse);
   rpc DeleteByGuestId (DeleteByGuestIdRequest) returns (DeleteByGuestIdResponse);
   rpc Update (UpdateRequest) returns (UpdateResponse);
+  rpc GetAllGuestAccommodations(GetAllByGuestIdRequest) returns (GetAllAccommodationResponse);
 }
