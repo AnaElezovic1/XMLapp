@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Abp.Domain.Entities;
 
 namespace BloodBankLibrary.Core.Accomodations
 {
@@ -40,16 +41,12 @@ namespace BloodBankLibrary.Core.Accomodations
 
         public void Update(ReservationBE reservation)
         {
-            _context.Entry(reservation).State = EntityState.Modified;
+            var entry = _context.Find(typeof(ReservationBE),reservation.Id);
+            _context.Entry(entry).CurrentValues.SetValues(reservation);
 
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
+
+            _context.SaveChanges();
+
         }
 
     }

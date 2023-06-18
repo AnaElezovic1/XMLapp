@@ -29,12 +29,5 @@
     <label>Auto Accept:</label>
     <input type="checkbox" formControlName="autoaccept" class="form-check-input">
   </div>
-  <div class="form-group">
-    <label>Accommodation ID:</label>
-    <input type="number" formControlName="accommodationId" class="form-control">
-    <div *ngIf="submitted && f.accommodationId.errors" class="text-danger">
-      Accommodation ID is required.
-    </div>
-  </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

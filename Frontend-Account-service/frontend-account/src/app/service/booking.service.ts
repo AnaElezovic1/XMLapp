@@ -19,5 +19,7 @@ export class BookingService {
   getAll(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:16277/api/Booking');
   }
-
+  getByAccommodation(id:number): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:16277/api/Booking/accommodation/'+id.toString());
+  }
 }

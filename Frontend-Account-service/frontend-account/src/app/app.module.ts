@@ -24,9 +24,9 @@ const appRoutes: Routes = [
   { path: 'user-profile', component: UserProfileComponent },
   { path: 'accommodation-list', component: AccommodationListComponent},
   {path:'new-accommodation',component: NewAccommodationComponent},
-  {path:'booking-list',component:BookingListComponent},
-  {path:'new-booking',component:CreateBookingComponent},
-  {path:'edit-booking',component:EditBookingComponent},
+  {path:'booking-list/:id',component:BookingListComponent},
+  {path:'new-booking/:id',component:CreateBookingComponent},
+  {path:'edit-booking/:id',component:EditBookingComponent},
 {path:'reservation-list',component:ReservationListComponent}
 ];
 

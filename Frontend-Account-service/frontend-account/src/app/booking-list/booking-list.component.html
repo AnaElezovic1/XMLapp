@@ -4,9 +4,12 @@
   <tr>
     <th (click)="sortBookings('start')">Start Date</th>
     <th (click)="sortBookings('end')">End Date</th>
-    <th (click)="sortBookings('price')">Price</th>
-    <th (click)="sortBookings('perperson')">Per Person</th>
-    <th (click)="sortBookings('autoaccept')">Auto Accept</th>
+    <th >Price</th>
+    <th >Per Person</th>
+    <th >Auto Accept</th>
+    <th >Total price</th>
+    <th> Number of guests</th>
+
   </tr>
   <tr *ngFor="let booking of sortedBookings">
     <td>{{ booking.start | date:'shortDate' }}</td>
@@ -14,5 +17,13 @@
     <td>{{ booking.price | currency }}</td>
     <td>{{ booking.perperson ? 'Yes' : 'No' }}</td>
     <td>{{ booking.autoaccept ? 'Yes' : 'No' }}</td>
+    <td>
+      {{totalPrice(booking)}}
+    </td>
+    <td><input type="number" [(ngModel)]="noOfGuests" [defaultValue]="noOfGuests" min="1" max="6"></td>
+    <td><button *ngIf="isHost"><li routerLink="/edit-booking/{{booking.id}}">Create new booking</li></button></td>
+    <td><button *ngIf="isGuest"(click)="post(booking.id)">Send reservation request</button></td>
+
+
   </tr>
 </table>

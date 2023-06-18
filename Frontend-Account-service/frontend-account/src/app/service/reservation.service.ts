@@ -19,5 +19,14 @@ export class ReservationService {
   getAll(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:16377/api/Reservation');
   }
+  getByGuest(id:number): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:16377/api/Reservation/guest/'+id);
+  }
+  update(reservation:Reservation): Observable<any[]> {
+    return this.http.post<any[]>('http://localhost:16377/api/Reservation/update/'+reservation.id,reservation);
+  }
+  delete(id:number): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:16377/api/Reservation/delete/'+id.toString());
+  }
 
 }

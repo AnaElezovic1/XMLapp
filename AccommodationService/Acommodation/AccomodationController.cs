@@ -35,6 +35,11 @@ namespace BloodBankAPI.Controllers
             return Ok(accomodation);
         }
 
+        [HttpGet("host/{id}")]
+        public ActionResult GetByHostId(int id)
+        {
+            return Ok(_accomodationService.GetAll().Where(e=>e.HostId==id));
+        }
         [HttpPost]
         public ActionResult Create(AccomodationBE accomodation)
 

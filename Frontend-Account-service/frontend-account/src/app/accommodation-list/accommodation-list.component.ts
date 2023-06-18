@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Accommodation } from '../model/accommodation';
 import { AccommodationService } from '../service/accommodation.service';
 import { FormsModule } from '@angular/forms';
+import { Users } from '../model/user';
+import { AuthService } from '../service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-accommodation-list',
@@ -14,13 +18,32 @@ export class AccommodationListComponent implements OnInit {
   reverseSort: boolean = false;
   searchBeds: number=0;
   searchLocation: string="";
-
-  constructor(private accommodationService: AccommodationService) { }
+  private user:Users={
+    id:0,
+    username:"user",
+    password:"pass",
+    email:"email",
+    role:"G",
+    adress:"nesto"
+  }
+  isHost:boolean=false;
+  hostId:number=0;
+  constructor(private route: ActivatedRoute, private router: Router, private httpClient: HttpClient,private authService:AuthService,private accommodationService: AccommodationService) { }
 
   ngOnInit(): void {
+    this.authService.currentlyLoggedInUser(this.user);
+    if(this.authService.loggedInUser.role=="H"){
+        this.isHost=true;
+    }
+    if(this.authService.loggedInUser.role=="H")
+    {
+      this.accommodationService.getByHost(this.authService.loggedInUser.id);
+    }
+    else{
     this.accommodationService.getAll().subscribe((data: Accommodation[]) => {
       this.accommodations = data;
     });
+    }
   }
 
   sort(columnName: string): void {

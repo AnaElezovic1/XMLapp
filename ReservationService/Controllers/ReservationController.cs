@@ -47,14 +47,14 @@ namespace BloodBankAPI.Controllers
             _accomodationService.Create(accomodation);
             return Ok("created");
         }
-        [HttpPost("delete/{id}")]
+        [HttpGet("delete/{id}")]
         public ActionResult Delete(int id)
 
         {
             _accomodationService.Delete(_accomodationService.GetById(id));
             return Ok("created");
         }
-        [HttpPost("delete-guest/{id}")]
+        [HttpGet("delete-guest/{id}")]
         public ActionResult DeleteByGuestId(int id)
 
         {
@@ -62,21 +62,13 @@ namespace BloodBankAPI.Controllers
             _accomodationService.Delete(_accomodationService.GetById(id));
             return Ok("done");
         }
-        [HttpPut("{id}")]
-        public ActionResult Update(int id, BloodBankLibrary.Core.Accomodations.ReservationBE accomodation)
+        [HttpPost("update/{id}")]
+        public ActionResult Update(BloodBankLibrary.Core.Accomodations.ReservationBE accomodation)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            try
-            {
+
                 _accomodationService.Update(accomodation);
-            }
-            catch
-            {
-                return BadRequest();
-            }
+            
+
 
             return Ok(accomodation);
         }

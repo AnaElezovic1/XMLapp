@@ -23,8 +23,12 @@ namespace BloodBankAPI.Controllers
         {
             return Ok(_reservationService.GetAll());
         }
-        
 
+        [HttpGet("accommodation/{id}")]
+        public ActionResult GetByAccommodation(int id)
+        {
+            return Ok(_reservationService.GetAll().Where(e=>e.AccommodationId==id));
+        }
         [HttpGet("{id}")]
         public ActionResult GetById(int id)
         {

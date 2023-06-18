@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { Booking } from '../model/booking';
 import { BookingService } from '../service/booking.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { AccommodationService } from '../service/accommodation.service';
+import { Accommodation } from '../model/accommodation';
+import { AuthService } from '../service/auth.service';
+import { Users } from '../model/user';
+import { ReservationService } from '../service/reservation.service';
+import { Reservation } from '../model/reservation';
 
 
 @Component({
@@ -13,13 +21,29 @@ export class BookingListComponent {
   sortedBookings: Booking[]=[];
   isAscending = true;
   searchText: string="";
-
-  constructor(private bookingService: BookingService) {
+  isHost:boolean=false;
+  isGuest:boolean=true;
+  private user:Users={
+    id:0,
+    username:"user",
+    password:"pass",
+    email:"email",
+    role:"G",
+    adress:"nesto"
+  }
+  noOfGuests:number=1;
+  constructor(private reservationService:ReservationService,private authService:AuthService,private accommodationService:AccommodationService,private bookingService: BookingService,private route: ActivatedRoute, private router: Router, private httpClient: HttpClient) {
     this.getBookings();
   }
-
+  ngOnInit(): void {
+    this.authService.currentlyLoggedInUser(this.user);
+    if(this.authService.loggedInUser.role=="H"){
+        this.isHost=true;
+        this.isGuest=false;
+    }
+  }
   getBookings(): void {
-    this.bookingService.getAll().subscribe(bookings => {
+    this.bookingService.getByAccommodation(parseInt(this.route.snapshot.paramMap.get('id') as string)).subscribe(bookings => {
       this.bookings = bookings;
       this.sortedBookings = bookings.slice(); // make a copy for sorting
     });
@@ -50,5 +74,31 @@ export class BookingListComponent {
       return startDateStr.includes(this.searchText)
           || endDateStr.includes(this.searchText);
     });
+  }
+  totalPrice(booking:Booking)
+  {
+    
+    var diff=new Date(booking.end).getTime()-new Date(booking.start).getTime();
+    var diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
+    if(booking.perperson==false){
+    return booking.price*(diffDays)
+    }
+    else
+  {
+    
+    return this.noOfGuests*booking.price*(diffDays);
+  }
+  }
+  post(bid:Number)
+  {
+    var reservation:Reservation={
+      id:0,
+      guestId:this.authService.loggedInUser.id,
+      bookingId:bid as number,
+      noOfGuests:this.noOfGuests,
+      accepted:false
+    };
+   this.reservationService.addUser(reservation).subscribe() ; 
+   console.log(reservation);
   }
 }

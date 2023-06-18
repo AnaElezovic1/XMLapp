@@ -23,7 +23,8 @@
         <td>{{ accommodation.description }}</td>
         <td>{{ accommodation.location }}</td>
         <td>{{ accommodation.beds }}</td>
-        <td><button>View available bookings</button></td>
+        <td><button><li routerLink="/booking-list/{{accommodation.id}}">View available bookings</li></button></td>
+        <td><button *ngIf="isHost"><li routerLink="/new-booking/{{accommodation.id}}">Create new booking</li></button></td>
       </tr>
     </tbody>
   </table>

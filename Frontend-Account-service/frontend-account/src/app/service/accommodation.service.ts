@@ -19,5 +19,10 @@ export class AccommodationService {
   getAll(): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:5001/api/Accomodation');
   }
-
+  getByHost(id:number): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:5001/api/Accomodation/host/'+id.toString());
+  }
+  getById(id:number): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:5001/api/Accomodation/'+id.toString());
+  }
 }
