@@ -31,7 +31,7 @@ export class AccommodationListComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private httpClient: HttpClient,private authService:AuthService,private accommodationService: AccommodationService) { }
 
   ngOnInit(): void {
-    this.authService.currentlyLoggedInUser(this.user);
+   // this.authService.currentlyLoggedInUser(this.user);
     if(this.authService.loggedInUser.role=="H"){
         this.isHost=true;
     }

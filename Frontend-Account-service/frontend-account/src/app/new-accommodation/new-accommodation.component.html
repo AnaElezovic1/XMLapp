@@ -11,7 +11,7 @@
     <br>
 
     <label>Images:</label>
-    <input type="text" [(ngModel)]="accommodation.images" [ngModelOptions]="{standalone: true}">
+    <input type="file" [(ngModel)]="accommodation.images" (change)="convertToString($event)" [ngModelOptions]="{standalone: true}">
     <br>
 
     <label>Beds:</label>

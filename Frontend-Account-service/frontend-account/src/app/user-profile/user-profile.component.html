@@ -8,8 +8,12 @@
     <input type="adress" name="adress" [(ngModel)]="user.adress" />
 
     <button type="submit" class="secondary-button">Save</button>
+
+
   </form>
 </div>
+<br>
+<button type="submit" class="secondary-button" (click)="onDelete()">Delete</button>
 <div *ngIf="!loggedIn">
   <p>Please log in to view your profile.</p>
 </div>

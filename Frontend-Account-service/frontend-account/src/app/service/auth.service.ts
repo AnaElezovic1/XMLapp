@@ -21,7 +21,6 @@ export class AuthService {
 
   currentlyLoggedInUser(user: Users) {
     this.loggedInUser = user;
-
     return this.loggedInUser;
   }
 }

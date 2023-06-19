@@ -2,7 +2,7 @@
 <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label>Start:</label>
-    <input type="date" formControlName="start" class="form-control" [(ngModel)]="booking.start">
+    <input type="date" formControlName="start" class="form-control" value="{{booking.end}}">
     <div *ngIf="submitted && f.start.errors" class="text-danger">
       Start date is required.
     </div>

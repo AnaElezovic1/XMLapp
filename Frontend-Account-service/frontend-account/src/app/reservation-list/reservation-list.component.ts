@@ -25,13 +25,13 @@ export class ReservationListComponent implements OnInit {
   constructor(private authService:AuthService,private reservationService: ReservationService,private location:Location) { }
 
   ngOnInit() {
-    this.authService.currentlyLoggedInUser(this.user);
+    //this.authService.currentlyLoggedInUser(this.user);
     if(this.authService.loggedInUser.role=="H"){
         this.isHost=true;
         this.isGuest=false;
     }
   
-    this.authService.currentlyLoggedInUser(this.user);
+   // this.authService.currentlyLoggedInUser(this.user);
     if(this.authService.loggedInUser.role="G")
     {
      this.reservationService.getByGuest(this.authService.loggedInUser.id).subscribe(reservations => this.reservations = reservations); 
@@ -51,6 +51,10 @@ export class ReservationListComponent implements OnInit {
     res.accepted=true;
     console.log(res);
     this.reservationService.update(res).subscribe();
+
+  }
+  refresh()
+  {
 
   }
 }

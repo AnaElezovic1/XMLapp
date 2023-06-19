@@ -25,6 +25,7 @@
         <td>{{ accommodation.beds }}</td>
         <td><button><li routerLink="/booking-list/{{accommodation.id}}">View available bookings</li></button></td>
         <td><button *ngIf="isHost"><li routerLink="/new-booking/{{accommodation.id}}">Create new booking</li></button></td>
+        <td><img [src]="accommodation.images" width="320" height="180"></td>
       </tr>
     </tbody>
   </table>

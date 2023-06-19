@@ -33,7 +33,8 @@ export class LoginPageComponent implements OnInit {
           if (user) {
             this.authService.currentlyLoggedInUser(user);
             this.authService.login();
-            this.router.navigate(['/user-profile']);
+           //this.router.navigate(['/user-profile']);
+           this.router.navigate(['/home-page']);
           } else {
             console.log('Invalid credentials');
           }

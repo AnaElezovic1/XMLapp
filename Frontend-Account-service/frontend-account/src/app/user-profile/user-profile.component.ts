@@ -37,4 +37,8 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
+  onDelete():void{
+    this.userService.deleteUser(this.user.id).subscribe(res=>(console.log(res)));
+    
+  }
 }

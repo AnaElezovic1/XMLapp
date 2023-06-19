@@ -31,11 +31,22 @@ export class NewAccommodationComponent {
   }
   constructor(private accommodationService: AccommodationService,private authService:AuthService) { }
   ngOnInit() {
-    this.authService.currentlyLoggedInUser(this.user);
+   // this.authService.currentlyLoggedInUser(this.user);
   }
   onSubmit() {
     this.accommodation.hostId=this.authService.loggedInUser.id;
     this.accommodationService.addUser(this.accommodation).subscribe();
     console.log(this.accommodation);
+  }
+  convertToString(event:any)
+  {
+    var file = event.target.files[0]
+    var reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event) => {
+     this.accommodation.images = (<FileReader>event.target).result as string;
+     console.log(this.accommodation.images);
+    }
+
   }
 }

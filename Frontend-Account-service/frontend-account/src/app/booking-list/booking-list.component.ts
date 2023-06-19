@@ -9,6 +9,7 @@ import { AuthService } from '../service/auth.service';
 import { Users } from '../model/user';
 import { ReservationService } from '../service/reservation.service';
 import { Reservation } from '../model/reservation';
+import { UserService } from '../service/user.service';
 
 
 @Component({
@@ -32,11 +33,20 @@ export class BookingListComponent {
     adress:"nesto"
   }
   noOfGuests:number=1;
-  constructor(private reservationService:ReservationService,private authService:AuthService,private accommodationService:AccommodationService,private bookingService: BookingService,private route: ActivatedRoute, private router: Router, private httpClient: HttpClient) {
+  constructor(private userService:UserService,private reservationService:ReservationService,private authService:AuthService,private accommodationService:AccommodationService,private bookingService: BookingService,private route: ActivatedRoute, private router: Router, private httpClient: HttpClient) {
     this.getBookings();
   }
   ngOnInit(): void {
-    this.authService.currentlyLoggedInUser(this.user);
+
+    this.userService.getUsers().subscribe((users) => {
+     // this.users = users;
+    //  console.log(this.users);
+    //  this.loggedIn = this.authService.isLoggedIn;
+      this.user = this.authService.loggedInUser;
+    });
+   console.log(this.authService.loggedInUser);
+   this.user=this.authService.loggedInUser;
+   console.log(this.user);
     if(this.authService.loggedInUser.role=="H"){
         this.isHost=true;
         this.isGuest=false;
