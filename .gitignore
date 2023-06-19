@@ -25,3 +25,4 @@ replay_pid*
 BookingService/.vs/BookingService/FileContentIndex/eae4f48c-2ca2-4d22-af61-60a84e0779f2.vsidx
 BookingService/.vs/BookingService/FileContentIndex/5291c4b8-09ec-407b-884e-b558f90e8a24.vsidx
 *.vsidx
+*.protodep
