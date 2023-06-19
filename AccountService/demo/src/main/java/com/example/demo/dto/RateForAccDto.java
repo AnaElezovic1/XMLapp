@@ -9,6 +9,6 @@ import java.time.LocalDate;
 @Setter
 public class RateForAccDto {
 
-    private LocalDate date;
+    private long accId;
     private int rate;
 }

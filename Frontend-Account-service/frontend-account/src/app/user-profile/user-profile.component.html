@@ -8,12 +8,68 @@
     <input type="adress" name="adress" [(ngModel)]="user.adress" />
 
     <button type="submit" class="secondary-button">Save</button>
+    <button *ngIf="user.role == 'GOST'" (click)="showRateForm()">Create rate for Host</button>
+    <button *ngIf="user.role == 'GOST'" (click)="showRateAcc()">Create rate for Accommodation</button>
+    <button *ngIf="user.role == 'GOST'" (click)="showRateForm1()">Update rate for Host</button>
+    <button *ngIf="user.role == 'GOST'" (click)="showRateAcc1()">Update rate for Accommodation</button>
 
 
   </form>
 </div>
+
+<button (click)="showRateForm()">Update user</button>
+<button (click)="showRateAcc()">All Centre Administrators</button>
 <br>
 <button type="submit" class="secondary-button" (click)="onDelete()">Delete</button>
 <div *ngIf="!loggedIn">
   <p>Please log in to view your profile.</p>
 </div>
+
+
+
+
+<div  *ngIf="showUpdateCentre">
+  <form (ngSubmit)="onRateHost()">
+    <input type="text" name="rate" [(ngModel)]="rateHost.rate" />
+    <input type="text" name="rate" [(ngModel)]="rateHost.hostId" />
+    <button type="submit" class="secondary-button">Save</button>
+  </form>
+</div>
+
+<div  *ngIf="showUpdateUser1">
+  <form (ngSubmit)="onRateAcc()">
+    <input type="text" name="rate" [(ngModel)]="rateAcc.rate" />
+    <input type="text" name="rate" [(ngModel)]="rateAcc.accId" />
+    <button type="submit" class="secondary-button">Save</button>
+  </form>
+</div>
+
+
+<!-- <div >
+  <form (ngSubmit)="onUpdateHost()">
+    <input type="text" name="rate" [(ngModel)]="rateHost.rate" />
+    <input type="text" name="rate" [(ngModel)]="rateHost.hostId" />
+    <button type="submit" class="secondary-button">Update</button>
+  </form>
+</div> -->
+
+<div *ngIf="showUpdateCentre1">
+  <form (ngSubmit)="onUpdateRate()">
+    <input type="text" name="rate" [(ngModel)]="rateHost.rate" />
+    <input type="text" name="rate" [(ngModel)]="rateHost.hostId" />
+    <button type="submit" class="secondary-button">Update</button>
+  </form>
+</div>
+
+<div  *ngIf="showUpdateCentre2" >
+  <form (ngSubmit)="onUpdateRateAcc()">
+    <input type="text" name="rate" [(ngModel)]="rateAcc.rate" />
+    <input type="text" name="rate" [(ngModel)]="rateAcc.accId" />
+    <button type="submit" class="secondary-button">Save</button>
+  </form>
+</div> 
+
+<div *ngIf="user.role == 'GOST'" >
+ 
+</div>
+

@@ -10,6 +10,7 @@ import BloodBankLibrary.Core.Booking.Booking;
 import BloodBankLibrary.Core.Booking.BookingServiceGrpc;
 import BloodBankLibrary.Core.Booking.GetAllResponse;
 import BloodBankLibrary.Core.Booking.GetByIdRequest;
+import com.example.demo.accomodation.Accomodation;
 import com.example.demo.dto.RateDTO;
 import com.example.demo.dto.RateForAccDto;
 import com.example.demo.model.*;
@@ -78,11 +79,11 @@ public class UserService {
         UserApp user = userRepository.getById(userId);
 
         if (user.getRole().equals("GOST")) {
-            GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+            ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
                     .setGuestId(Math.toIntExact(userId))
                     .build();
 
-            GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+            ReservationOuterClass.GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
 
             if (response.getReservationsList().isEmpty()) {
                 this.userRepository.deleteById(userId);
@@ -118,11 +119,11 @@ public class UserService {
         UserApp loggedInUser = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         if (loggedInUser.getRole().getName().equals("GOST")) {
 
-               GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+               ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
                         .setGuestId(Math.toIntExact(loggedInUser.getId()))
                         .build();
 
-               GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
+               ReservationOuterClass.GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
 
                 if(response.getAccommodationsList().isEmpty()){
                     System.out.println("ne moze da se doda ocena");
@@ -131,8 +132,8 @@ public class UserService {
                     Optional<Host> hostOptional = hostRepository.findById(hostId);
                     if (hostOptional.isPresent()) {
                         Host host = hostOptional.get();
-                        List<Accomodation> accommodationsList = response.getAccommodationsList();
-                        for (Accomodation accommodation : accommodationsList) {
+                        List<ReservationOuterClass.Accomodation> accommodationsList = response.getAccommodationsList();
+                        for (ReservationOuterClass.Accomodation accommodation : accommodationsList) {
                             if (accommodation.getHostId() == hostId) {
                                 Rate rate = new Rate();
                                 rate.setHost(host);
@@ -158,11 +159,11 @@ public class UserService {
             Optional<Host>hostOptional = hostRepository.findById(rateDTO.getHostId());
             if(hostOptional.isPresent()){
 
-               GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+               ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
                         .setGuestId(Math.toIntExact(loggedInUser.getId()))
                         .build();
 
-              GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
+              ReservationOuterClass.GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
 
                 if(response.getAccommodationsList().isEmpty()){
                     System.out.println("ne moze da se doda ocena");
@@ -227,7 +228,7 @@ public class UserService {
 
 
     //ocenjivanje smestaja
-    public void rateAccommodation(Long id, RateForAccDto rateDTO){
+    public void rateAccommodation(RateForAccDto rateDTO){
         UserApp loggedInUser = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         if (loggedInUser.getRole().getName().equals("GOST")) {
             //dodajemo ovde docine provere...tj metode a zsada i kada dohvatimo smestaj

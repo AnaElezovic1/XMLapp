@@ -46,22 +46,22 @@ public class UserController {
         userService.deleteUser(userId);
     }
 
-    @PostMapping("/{hostId}/rateHost")
+    @PostMapping("/rateHost")
     public void rateHost(@PathVariable Long hostId, @RequestBody RateDTO rateDTO){
         userService.rateHost(hostId,rateDTO);
     }
 
-    @PostMapping("/{id}/rateAcc")
-    public void rateAcc(@PathVariable Long id, @RequestBody RateForAccDto rateDTO){
-        userService.rateAccommodation(id,rateDTO);
+    @PostMapping("/rateAcc")
+    public void rateAcc( @RequestBody RateForAccDto rateDTO){
+        userService.rateAccommodation(rateDTO);
     }
 
-    @PutMapping("/{hostId}/update")
+    @PutMapping("/update")
     public void updateRate(@PathVariable Long hostId, @RequestBody RateDTO rateDTO){
         userService.updateRate(hostId, rateDTO);
     }
 
-    @PutMapping("/{rateId}/updateAcc")
+    @PutMapping("/updateAcc")
     public void updateRate(@PathVariable Long rateId, @RequestBody RateForAccDto rateDTO){
         userService.updateRateAcc(rateId, rateDTO);
     }
@@ -76,12 +76,12 @@ public class UserController {
         userService.deleteRateForAcc(rateId);
     }
 
-    @GetMapping("/{rateId}/getRate")
+    @GetMapping("/getRate/{rateId}")
     public void getRate(@PathVariable Long rateId){
         userService.getByIdRate(rateId);
     }
 
-    @GetMapping("/{rateId}/getRateAcc")
+    @GetMapping("/getRateAcc/{rateId}")
     public void getRateAcc(@PathVariable Long rateId){
         userService.getByIdRateAcc(rateId);
     }

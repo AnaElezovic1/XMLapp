@@ -21,28 +21,24 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {}
 
   submitForm(form: NgForm) {
-    if (form.valid) {
-      const newUser: userLoginDTO = {
-        username: form.value.username,
-        password: form.value.password,
-      };
+    const username = form.value.username;
+    const password = form.value.password;
 
-      this.userService.login(newUser).subscribe(
-        (user: Users) => {
-          console.log(user);
-          if (user) {
-            this.authService.currentlyLoggedInUser(user);
-            this.authService.login();
-           //this.router.navigate(['/user-profile']);
-           this.router.navigate(['/home-page']);
-          } else {
-            console.log('Invalid credentials');
-          }
-        },
-        (error) => {
-          console.log(error);
+    this.authService.login(username,password).subscribe(
+      (response) => {
+        const role = this.authService.getRole();
+        if (role === 'GOST') {
+          this.router.navigate(['/user-profile']);
+        }if(role === 'HOST')
+        {
+          this.router.navigate(['/user-profile']);
         }
-      );
-    }
+        console.log('You have successfuly logged in!');
+      },
+      (error) => {
+        console.log('Login failed:', error);
+        // Show error message to user
+      }
+    );
   }
 }
