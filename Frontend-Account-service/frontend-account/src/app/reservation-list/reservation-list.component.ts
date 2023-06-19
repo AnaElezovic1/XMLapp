@@ -39,11 +39,12 @@ export class ReservationListComponent implements OnInit {
       .subscribe(reservations => this.reservations = reservations);
     }
   }
-  delAcc(sid:Number)
+  delAcc(sid:Reservation)
   {
     console.log(sid);
-    this.reservations.filter(e=>e.id!=sid);
-    this.reservationService.delete(sid as number).subscribe();
+    this.reservations.filter(e=>e.id!=sid.id);
+    this.reservationService.delete(sid.id as number).subscribe();
+    this.reservations.splice(this.reservations.indexOf(sid), 1);
   }
   upAcc(res:Reservation)
   {

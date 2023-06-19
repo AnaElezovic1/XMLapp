@@ -118,4 +118,10 @@ maxPrice: number=30000;
    this.reservationService.addUser(reservation).subscribe() ; 
    console.log(reservation);
   }
+  remove(bkng:Booking)
+  {
+
+        this.bookingService.delete(bkng).subscribe();
+        this.sortedBookings.splice(this.sortedBookings.indexOf(bkng), 1);
+   }
 }
