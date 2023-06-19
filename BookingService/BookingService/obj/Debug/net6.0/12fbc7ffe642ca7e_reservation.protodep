@@ -1,4 +1,4 @@
 obj\Debug\net6.0\Protos/Reservation.cs \
-obj\Debug\net6.0\Protos/ReservationGrpc.cs: C:/Users/Korisnik/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/wrappers.proto\
- C:/Users/Korisnik/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/timestamp.proto\
+obj\Debug\net6.0\Protos/ReservationGrpc.cs: C:/Users/count/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/wrappers.proto\
+ C:/Users/count/.nuget/packages/grpc.tools/2.54.0/build/native/include/google/protobuf/timestamp.proto\
  Protos/reservation.proto

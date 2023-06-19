@@ -26,15 +26,16 @@ namespace BloodBankAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WSDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")));
+            options.UseNpgsql(Configuration.GetConnectionString("BookingDb")));
             var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
             var client = new BookingService.BookingServiceClient(channel);
             services.AddSingleton(client);
 
 
 
-            services.AddScoped<IBookingRepository, BookingRepository>();
-            services.AddScoped<IBookingService, BookingServiceBE>();
+            services.AddSingleton<IBookingRepository, BookingRepository>();
+            services.AddSingleton<IBookingService, BookingServiceBE>();
+            services.AddSingleton<GRPCBookingService>();
             services.AddSession();
             services.AddMemoryCache();
             services.AddAuthentication();
@@ -93,7 +94,7 @@ namespace BloodBankAPI
             server = new Server
             {
                 
-                Services = {BookingService.BindService(new GRPCBookingService()) },
+                Services = {BookingService.BindService(app.ApplicationServices.GetService<GRPCBookingService>()) },
                 Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
             };
             server.Start();

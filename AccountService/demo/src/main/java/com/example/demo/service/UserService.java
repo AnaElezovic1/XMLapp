@@ -4,10 +4,7 @@ package com.example.demo.service;
 //import BloodBankAPI.GetAllByGuestIdResponse;
 //import BloodBankAPI.GetByIdResponse;
 //import BloodBankAPI.ReservationOuterClass;
-import BloodBankAPI.GetAllAccommodationResponse;
-import BloodBankAPI.GetAllByGuestIdRequest;
-import BloodBankAPI.GetAllByGuestIdResponse;
-import BloodBankAPI.ReservationServiceGrpc;
+import BloodBankAPI.*;
 import BloodBankAPI.ReservationServiceGrpc.ReservationServiceImplBase;
 import BloodBankLibrary.Core.Booking.Booking;
 import BloodBankLibrary.Core.Booking.BookingServiceGrpc;
@@ -131,14 +128,21 @@ public class UserService {
                     System.out.println("ne moze da se doda ocena");
                 } else {
 
-                    Optional<Host>hostOptional = hostRepository.findById(hostId);
-                    Host host = hostOptional.get();
-                    if(response.getAccommodationsList().contains(host)){
-                        Rate rate = new Rate();
-                        rate.setHost(host);
-                        rate.setRate(rateDTO.getRate());
-                        rate.setDate(LocalDate.now());
-                        rateRepository.save(rate);
+                    Optional<Host> hostOptional = hostRepository.findById(hostId);
+                    if (hostOptional.isPresent()) {
+                        Host host = hostOptional.get();
+                        List<Accomodation> accommodationsList = response.getAccommodationsList();
+                        for (Accomodation accommodation : accommodationsList) {
+                            if (accommodation.getHostId() == hostId) {
+                                Rate rate = new Rate();
+                                rate.setHost(host);
+                                rate.setRate(rateDTO.getRate());
+                                rate.setDate(LocalDate.now());
+                                rateRepository.save(rate);
+                            }
+                        }
+                    } else {
+                        // Handle case when the host is not found
                     }
 
 
@@ -255,6 +259,7 @@ public class UserService {
 
     public void getByIdRateAcc(Long rateId){
         Optional<RateForAccommodation>rateOptional = rateForAccRepository.findById(rateId);
+        System.out.println("Rate Optional" + rateOptional.get());
     }
 
     //srednja ocena
