@@ -14,16 +14,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccommodationListComponent implements OnInit {
   accommodations: Accommodation[]=[];
+  descriptions: string[]=[];
   sortedColumn: string="";
   reverseSort: boolean = false;
   searchBeds: number=0;
   searchLocation: string="";
+  wantedDescription: string="";
   private user:Users={
     id:0,
     username:"user",
     password:"pass",
     email:"email",
-    role:"H",
+    role:"HOST",
     adress:"nesto"
   }
   isHost:boolean=false;
@@ -32,16 +34,17 @@ export class AccommodationListComponent implements OnInit {
 
   ngOnInit(): void {
    // this.authService.currentlyLoggedInUser(this.user);
-    if(this.authService.loggedInUser.role=="H"){
+    if(this.authService.loggedInUser.role=="HOST"){
         this.isHost=true;
     }
-    if(this.authService.loggedInUser.role=="H")
+    if(this.authService.loggedInUser.role=="HOST")
     {
       this.accommodationService.getByHost(this.authService.loggedInUser.id).subscribe((data: Accommodation[]) => {
         this.accommodations = data;    })}
     else{
     this.accommodationService.getAll().subscribe((data: Accommodation[]) => {
       this.accommodations = data;
+      data.forEach(e=>this.descriptions.push(e.description));
     });
     }
   }
@@ -76,7 +79,12 @@ export class AccommodationListComponent implements OnInit {
     if (this.searchLocation) {
       filteredAccommodations = filteredAccommodations.filter(accommodation => accommodation.location.toLowerCase().includes(this.searchLocation.toLowerCase()));
     }
-
+    filteredAccommodations=filteredAccommodations.filter(accommodation => accommodation.description.toLowerCase().includes(this.wantedDescription.toLowerCase()))
     return filteredAccommodations;
+  }
+  onSelected(string:string)
+  {
+    this.wantedDescription=string;
+    this.filter();
   }
 }

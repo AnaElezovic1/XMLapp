@@ -17,7 +17,8 @@ import { UserService } from '../service/user.service';
   templateUrl: './booking-list.component.html',
 })
 export class BookingListComponent {
-
+  minPrice: number=1;
+maxPrice: number=30000;
   bookings: Booking[]=[];
   sortedBookings: Booking[]=[];
   isAscending = true;
@@ -47,7 +48,7 @@ export class BookingListComponent {
    console.log(this.authService.loggedInUser);
    this.user=this.authService.loggedInUser;
    console.log(this.user);
-    if(this.authService.loggedInUser.role=="H"){
+    if(this.authService.loggedInUser.role=="HOST"){
         this.isHost=true;
         this.isGuest=false;
     }
@@ -74,15 +75,19 @@ export class BookingListComponent {
   }
 
   searchBookings(): void {
-    if (!this.searchText) {
+    if (!this.searchText && !this.minPrice && !this.minPrice) {
       this.sortedBookings = this.bookings.slice(); // restore original order
       return;
     }
     this.sortedBookings = this.bookings.filter(booking => {
       const startDateStr = booking.start.toString();
       const endDateStr = booking.end.toString();
+      const isInPriceRange = (booking.price >= this.minPrice )
+                            && ( booking.price <= this.maxPrice );
+      console.log(startDateStr);
       return startDateStr.includes(this.searchText)
-          || endDateStr.includes(this.searchText);
+          && endDateStr.includes(this.searchText)
+          && isInPriceRange;
     });
   }
   totalPrice(booking:Booking)
