@@ -19,11 +19,11 @@ namespace YourNamespace.Services
 {
     public class GRPCBookingService:BookingService.BookingServiceBase
     {
-        private readonly IBookingRepository accomodationRepository;
+        private readonly IBookingRepository bookingRepository;
 
-        public GRPCBookingService(IBookingRepository accomodationRepository)
+        public GRPCBookingService(IBookingRepository bookingRepository)
         {
-            this.accomodationRepository = accomodationRepository;
+            this.bookingRepository = bookingRepository;
         }
 
         public GRPCBookingService()
@@ -33,9 +33,9 @@ namespace YourNamespace.Services
         public override Task<GetAllResponse> GetAll(GetAllRequest request, ServerCallContext context)
         {
             GetAllResponse list = new GetAllResponse();
-            List<BookingBE> accomodationBE = accomodationRepository.GetAll().ToList();
-            List<Booking> accomodations = new List<Booking>();
-            foreach(BookingBE bE in accomodationBE)
+            List<BookingBE> bookingBEs = bookingRepository.GetAll().ToList();
+            List<Booking> bookings = new List<Booking>();
+            foreach(BookingBE bE in bookingBEs)
             {
                 Booking acc1 = new Booking();
                 acc1.Id = bE.Id;
@@ -54,7 +54,7 @@ namespace YourNamespace.Services
         public override Task<GetByIdResponse> GetById(GetByIdRequest request, ServerCallContext context)
         {
 
-            BookingBE bE = accomodationRepository.GetById(request.Id);
+            BookingBE bE = bookingRepository.GetById(request.Id);
             Booking acc1 = new Booking();
             acc1.Id = bE.Id;
             acc1.AccommodationId = bE.AccommodationId;
@@ -79,7 +79,7 @@ namespace YourNamespace.Services
             accomodationBE.Start = request.Booking.Start.ToDateTime();
             accomodationBE.Perperson = request.Booking.Perperson;
             accomodationBE.Price = request.Booking.Price;
-            accomodationRepository.Create(accomodationBE);
+            bookingRepository.Create(accomodationBE);
             return Task.FromResult(new CreateResponse());
         }
 
@@ -94,7 +94,7 @@ namespace YourNamespace.Services
             accomodationBE.Start = request.Booking.Start.ToDateTime();
             accomodationBE.Perperson = request.Booking.Perperson;
             accomodationBE.Price = request.Booking.Price;
-            accomodationRepository.Delete(accomodationBE);
+            bookingRepository.Delete(accomodationBE);
             return Task.FromResult(new DeleteResponse());
 
         }
@@ -106,8 +106,8 @@ namespace YourNamespace.Services
             foreach (Accomodation ac in accommodation.Accomodations)
             {
                 if (ac.HostId == request.Id)
-                    foreach (BookingBE bkng in accomodationRepository.GetAll().Where(e => e.AccommodationId == ac.Id)){
-                        accomodationRepository.Delete(bkng);
+                    foreach (BookingBE bkng in bookingRepository.GetAll().Where(e => e.AccommodationId == ac.Id)){
+                        bookingRepository.Delete(bkng);
                     }
 
             }
@@ -126,7 +126,7 @@ namespace YourNamespace.Services
             foreach (Accomodation ac in accommodation.Accomodations)
             {
                 if (ac.HostId == request.Id)
-                    foreach (BookingBE bkng in accomodationRepository.GetAll().Where(e => e.AccommodationId == ac.Id))
+                    foreach (BookingBE bkng in bookingRepository.GetAll().Where(e => e.AccommodationId == ac.Id))
                     {
                         Booking acc1 = new Booking();
                         acc1.Id = bkng.Id;
@@ -162,7 +162,7 @@ namespace YourNamespace.Services
                 if (reservation.BookingId == request.Booking.Id)
                     return Task.FromResult(new UpdateResponse());
             }
-            accomodationRepository.Update(accomodationBE);
+            bookingRepository.Update(accomodationBE);
             return Task.FromResult(new UpdateResponse());
         }
     }

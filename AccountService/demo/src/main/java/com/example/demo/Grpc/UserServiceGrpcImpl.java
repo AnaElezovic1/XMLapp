@@ -13,9 +13,9 @@ import java.util.List;
 
 @Component //dodao
 public class UserServiceGrpcImpl extends UserAppServiceGrpc.UserAppServiceImplBase {
-  private final UserService userService;
+    private final UserService userService;
 
-   // @Autowired uklonio
+    // @Autowired uklonio
     public UserServiceGrpcImpl(UserService userService) {
         this.userService = userService;
     }
@@ -30,8 +30,8 @@ public class UserServiceGrpcImpl extends UserAppServiceGrpc.UserAppServiceImplBa
                     .setId(user.getId())
                     .setUsername(user.getUsername())
                     .setEmail(user.getEmail())
-                            .setAddress(user.getAdress())
-                            .setPassword((user.getPassword()))
+//                    .setAddress(user.getAdress())
+                    .setPassword((user.getPassword()))
                     .build());
         }
 
@@ -46,14 +46,14 @@ public class UserServiceGrpcImpl extends UserAppServiceGrpc.UserAppServiceImplBa
 
 
 
-      UserApp newUser = mapUser(request.getUser());
-      userService.addNewUser(newUser);
+        UserApp newUser = mapUser(request.getUser());
+        userService.addNewUser(newUser);
 
-      AddUserResponse response = AddUserResponse.newBuilder().setSuccess(true).build();
+        AddUserResponse response = AddUserResponse.newBuilder().setSuccess(true).build();
 
         responseObserver.onNext(response);
         responseObserver.onCompleted();
-       
+
 
     }
 
@@ -63,8 +63,8 @@ public class UserServiceGrpcImpl extends UserAppServiceGrpc.UserAppServiceImplBa
         mappedUser.setUsername(user.getUsername());
         mappedUser.setPassword(user.getPassword());
         mappedUser.setEmail(user.getEmail());
-        mappedUser.setRole(com.example.demo.model.Role.valueOf(user.getRole().name()));
-        mappedUser.setAdress(user.getAddress());
+//        mappedUser.setRole(com.example.demo.model.Role.valueOf(user.getRole().name()));
+//        mappedUser.setAdress(user.getAddress());
         System.out.println("Mapped User Username: " + mappedUser.getUsername());
         System.out.println("Mapped User: " + mappedUser.toString());
         return mappedUser;
