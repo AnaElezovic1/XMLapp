@@ -29,6 +29,8 @@ export class NewAccommodationComponent {
     role:"H",
     adress:"nesto"
   }
+  minGuests:number=1;
+  maxGuests:number=6;
   constructor(private accommodationService: AccommodationService,private authService:AuthService) { }
   ngOnInit() {
    // this.authService.currentlyLoggedInUser(this.user);
