@@ -21,7 +21,7 @@ export class HomePageComponent {
 constructor(private authService:AuthService){}
 ngOnInit(){
 //this.authService.currentlyLoggedInUser(this.user);
-if(this.authService.loggedInUser.role=="H"){
+if(this.authService.loggedInUser.role=="HOST"){
     this.isHost=true;
     this.isGuest=false;
 }

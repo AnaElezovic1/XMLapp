@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-new-booking',
   templateUrl: './new-booking.component.html',
+  styleUrls: ['./new-booking.component.css']
+
 })
 export class CreateBookingComponent {
   bookingForm: FormGroup= this.formBuilder.group({

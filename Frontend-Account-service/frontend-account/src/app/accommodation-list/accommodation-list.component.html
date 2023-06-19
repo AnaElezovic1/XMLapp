@@ -7,7 +7,12 @@
     <label for="search-location">Location:</label>
     <input type="text" id="search-location" [(ngModel)]="searchLocation">
   </div>
-  
+  <div>
+    <select #desc (change)="onSelected(desc.value)">
+      <option></option>
+      <option *ngFor="let desc of descriptions" >{{desc}}</option>
+    </select>
+  </div>
   <table>
     <thead>
       <tr>
