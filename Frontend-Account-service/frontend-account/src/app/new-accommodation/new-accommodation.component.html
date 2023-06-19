@@ -19,9 +19,10 @@
   
     <br>
     <label>Min guests:</label>
-    <input type="number" >
+    <input type="number" [(ngModel)]="minGuests" min=1 max="{{accommodation.beds}}">
     <label>Max guests:</label>
-    <input type="number">
+    <input type="number" [(ngModel)]="maxGuests" min="{{minGuests}}" max="{{accommodation.beds}}">
+    <br>
   
   
     <button type="submit">Create Accommodation</button>
