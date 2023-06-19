@@ -5,7 +5,7 @@
     <span>Booking ID:</span> {{ reservation.bookingId }} <br>
     <span>No. of Guests:</span> {{ reservation.noOfGuests }} <br>
     <span>Accepted:</span> {{ reservation.accepted ? 'Yes' : 'No' }} <br>
-    <button *ngIf="isGuest" (click)="delAcc(reservation.id)">Delete</button> 
+    <button *ngIf="isGuest" (click)="delAcc(reservation)">Delete</button> 
     <button *ngIf="isHost" (click)="upAcc(reservation)">Accept</button> 
   </li>
 </ul>

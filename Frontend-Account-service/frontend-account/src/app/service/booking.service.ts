@@ -30,4 +30,9 @@ export class BookingService {
     return this.http.post<any>('http://localhost:16277/api/Booking/update',booking);
 
   }
+  delete(booking:Booking):Observable<any>
+  {
+    return this.http.post<any>('http://localhost:16277/api/Booking/delete/'+booking.id,booking);
+
+  }
 }
