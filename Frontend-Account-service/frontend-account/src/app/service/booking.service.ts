@@ -22,4 +22,12 @@ export class BookingService {
   getByAccommodation(id:number): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:16277/api/Booking/accommodation/'+id.toString());
   }
+  getById(id:number):Observable<any>{
+    return this.http.get<any>('http://localhost:16277/api/Booking/'+id);
+  }
+  update(booking:Booking):Observable<any>
+  {
+    return this.http.post<any>('http://localhost:16277/api/Booking/update',booking);
+
+  }
 }

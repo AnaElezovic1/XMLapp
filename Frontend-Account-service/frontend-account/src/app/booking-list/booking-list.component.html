@@ -21,7 +21,7 @@
       {{totalPrice(booking)}}
     </td>
     <td><input type="number" [(ngModel)]="noOfGuests" [defaultValue]="noOfGuests" min="1" max="6"></td>
-    <td><button *ngIf="isHost"><li routerLink="/edit-booking/{{booking.id}}">Create new booking</li></button></td>
+    <td><button *ngIf="isHost"><li routerLink="/edit-booking/{{booking.id}}">Edit booking</li></button></td>
     <td><button *ngIf="isGuest"(click)="post(booking.id)">Send reservation request</button></td>
 
 

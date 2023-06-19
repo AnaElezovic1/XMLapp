@@ -17,6 +17,7 @@ import { BookingListComponent } from './booking-list/booking-list.component';
 import { CreateBookingComponent } from './new-booking/new-booking.component';
 import { EditBookingComponent } from './edit-booking/edit-booking.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const appRoutes: Routes = [
   { path: 'registration', component: RegistrationPageComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path:'booking-list/:id',component:BookingListComponent},
   {path:'new-booking/:id',component:CreateBookingComponent},
   {path:'edit-booking/:id',component:EditBookingComponent},
-{path:'reservation-list',component:ReservationListComponent}
+{path:'reservation-list',component:ReservationListComponent},
+{path:'home-page',component:HomePageComponent}
 ];
 
 @NgModule({
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     CreateBookingComponent,
     EditBookingComponent,
     ReservationListComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

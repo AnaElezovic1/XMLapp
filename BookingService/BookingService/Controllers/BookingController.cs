@@ -63,21 +63,13 @@ namespace BloodBankAPI.Controllers
             return Ok("created");
         }
 
-        [HttpPut("{id}")]
-        public ActionResult Update(int id, BookingBE reservation)
+        [HttpPost("update")]
+        public ActionResult Update(BookingBE reservation)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            try
-            {
+
                 _reservationService.Update(reservation);
-            }
-            catch
-            {
-                return BadRequest();
-            }
+
+
 
             return Ok(reservation);
         }

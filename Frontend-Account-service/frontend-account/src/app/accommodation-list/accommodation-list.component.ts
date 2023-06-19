@@ -23,7 +23,7 @@ export class AccommodationListComponent implements OnInit {
     username:"user",
     password:"pass",
     email:"email",
-    role:"G",
+    role:"H",
     adress:"nesto"
   }
   isHost:boolean=false;
@@ -37,8 +37,8 @@ export class AccommodationListComponent implements OnInit {
     }
     if(this.authService.loggedInUser.role=="H")
     {
-      this.accommodationService.getByHost(this.authService.loggedInUser.id);
-    }
+      this.accommodationService.getByHost(this.authService.loggedInUser.id).subscribe((data: Accommodation[]) => {
+        this.accommodations = data;    })}
     else{
     this.accommodationService.getAll().subscribe((data: Accommodation[]) => {
       this.accommodations = data;

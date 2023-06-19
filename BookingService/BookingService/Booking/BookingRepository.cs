@@ -42,14 +42,9 @@ namespace BloodBankLibrary.Core.Accomodations
         {
             _context.Entry(reservation).State = EntityState.Modified;
 
-            try
-            {
                 _context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                throw;
-            }
+
+
         }
 
     }

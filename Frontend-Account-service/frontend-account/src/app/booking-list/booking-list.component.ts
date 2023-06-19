@@ -28,7 +28,7 @@ export class BookingListComponent {
     username:"user",
     password:"pass",
     email:"email",
-    role:"G",
+    role:"H",
     adress:"nesto"
   }
   noOfGuests:number=1;
