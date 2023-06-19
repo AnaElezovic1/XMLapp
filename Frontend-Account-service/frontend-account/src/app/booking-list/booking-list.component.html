@@ -1,5 +1,10 @@
 <h2>Booking List</h2>
 <input type="text" [(ngModel)]="searchText" (input)="searchBookings()" placeholder="Search...">
+<label>Min Price:</label>
+<input type="text" [(ngModel)]="minPrice" (input)="searchBookings()">
+<label>Max Price:</label>
+<input type="text" [(ngModel)]="maxPrice" (input)="searchBookings()">
+
 <table>
   <tr>
     <th (click)="sortBookings('start')">Start Date</th>

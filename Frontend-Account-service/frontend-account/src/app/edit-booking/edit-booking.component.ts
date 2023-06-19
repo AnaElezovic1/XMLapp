@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-edit-booking',
   templateUrl: './edit-booking.component.html',
+  styleUrls:['./edit-booking.component.css']
 })
 export class EditBookingComponent {
   bookingForm: FormGroup= this.formBuilder.group({

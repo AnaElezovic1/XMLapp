@@ -3,8 +3,6 @@ import { Reservation } from '../model/reservation';
 import { ReservationService } from '../service/reservation.service';
 import { Users } from '../model/user';
 import { AuthService } from '../service/auth.service';
-import { Location } from '@angular/common';
-
 @Component({
   selector: 'app-reservation-list',
   templateUrl: './reservation-list.component.html',
@@ -22,17 +20,17 @@ export class ReservationListComponent implements OnInit {
   }
   isHost:boolean=false;
   isGuest:boolean=true;
-  constructor(private authService:AuthService,private reservationService: ReservationService,private location:Location) { }
+  constructor(private authService:AuthService,private reservationService: ReservationService) { }
 
   ngOnInit() {
     //this.authService.currentlyLoggedInUser(this.user);
-    if(this.authService.loggedInUser.role=="H"){
+    if(this.authService.loggedInUser.role=="HOST"){
         this.isHost=true;
         this.isGuest=false;
     }
   
    // this.authService.currentlyLoggedInUser(this.user);
-    if(this.authService.loggedInUser.role="G")
+    if(this.authService.loggedInUser.role=="GUEST")
     {
      this.reservationService.getByGuest(this.authService.loggedInUser.id).subscribe(reservations => this.reservations = reservations); 
     }
@@ -44,6 +42,7 @@ export class ReservationListComponent implements OnInit {
   delAcc(sid:Number)
   {
     console.log(sid);
+    this.reservations.filter(e=>e.id!=sid);
     this.reservationService.delete(sid as number).subscribe();
   }
   upAcc(res:Reservation)
