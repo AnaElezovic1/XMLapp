@@ -15,6 +15,8 @@ import { UserService } from '../service/user.service';
 @Component({
   selector: 'app-booking-list',
   templateUrl: './booking-list.component.html',
+  styleUrls: ['./booking-list.component.css']
+
 })
 export class BookingListComponent {
   minPrice: number=1;

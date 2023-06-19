@@ -30,7 +30,7 @@ export class ReservationListComponent implements OnInit {
     }
   
    // this.authService.currentlyLoggedInUser(this.user);
-    if(this.authService.loggedInUser.role="HOST")
+    if(this.authService.loggedInUser.role=="GUEST")
     {
      this.reservationService.getByGuest(this.authService.loggedInUser.id).subscribe(reservations => this.reservations = reservations); 
     }
