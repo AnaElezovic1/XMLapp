@@ -3,8 +3,12 @@ package com.example.demo.service;
 //import BloodBankAPI.GetAllByGuestIdRequest;
 //import BloodBankAPI.GetAllByGuestIdResponse;
 //import BloodBankAPI.GetByIdResponse;
-import BloodBankAPI.ReservationOuterClass;
+//import BloodBankAPI.ReservationOuterClass;
+import BloodBankAPI.GetAllAccommodationResponse;
+import BloodBankAPI.GetAllByGuestIdRequest;
+import BloodBankAPI.GetAllByGuestIdResponse;
 import BloodBankAPI.ReservationServiceGrpc;
+import BloodBankAPI.ReservationServiceGrpc.ReservationServiceImplBase;
 import BloodBankLibrary.Core.Booking.Booking;
 import BloodBankLibrary.Core.Booking.BookingServiceGrpc;
 import BloodBankLibrary.Core.Booking.GetAllResponse;
@@ -69,19 +73,19 @@ public class UserService {
 
     @Transactional
     public void deleteUser(Long userId){
-//
-//        Optional<UserApp> userAppOptional = userRepository.findById(userId);
-//        if(userAppOptional.isPresent()) {
-//
-//            UserApp user = userAppOptional.get();
+
+        Optional<UserApp> userAppOptional = userRepository.findById(userId);
+        if(userAppOptional.isPresent()) {
+
+           // UserApp user = userAppOptional.get();
         UserApp user = userRepository.getById(userId);
 
         if (user.getRole().equals("GOST")) {
-            ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
+            GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
                     .setGuestId(Math.toIntExact(userId))
                     .build();
 
-            ReservationOuterClass.GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
+            GetAllByGuestIdResponse response = reservationServiceStub.getAllByGuestId(request);
 
             if (response.getReservationsList().isEmpty()) {
                 this.userRepository.deleteById(userId);
@@ -106,22 +110,22 @@ public class UserService {
             System.out.println(user.getRole());
             System.out.println("Nalog ne može biti obrisan jer korisnik nema ulogu hosta");
         }
-//        }
+       }
 
 
 
-    }
+   }
 
-//    ocenjivanje hosta
+    //ocenjivanje hosta
     public void rateHost(Long hostId, RateDTO rateDTO){
         UserApp loggedInUser = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         if (loggedInUser.getRole().getName().equals("GOST")) {
 
-                ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
+               GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
                         .setGuestId(Math.toIntExact(loggedInUser.getId()))
                         .build();
 
-                ReservationOuterClass.GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
+               GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
 
                 if(response.getAccommodationsList().isEmpty()){
                     System.out.println("ne moze da se doda ocena");
@@ -144,39 +148,39 @@ public class UserService {
         }
     }
 
-//    public void rateHost(RateDTO rateDTO){
-//        UserApp loggedInUser = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
-//        if (loggedInUser.getRole().getName().equals("GOST")) {
-//            Optional<Host>hostOptional = hostRepository.findById(rateDTO.getHostId());
-//            if(hostOptional.isPresent()){
-//
-//                ReservationOuterClass.GetAllByGuestIdRequest request = ReservationOuterClass.GetAllByGuestIdRequest.newBuilder()
-//                        .setGuestId(Math.toIntExact(loggedInUser.getId()))
-//                        .build();
-//
-//                ReservationOuterClass.GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
-//
-//                if(response.getAccommodationsList().isEmpty()){
-//                    System.out.println("ne moze da se doda ocena");
-//                } else {
-//
-//                    if(response.getAccommodationsList().contains(hostOptional.get().getId())){
-//                        Rate rate = new Rate();
-//                        rate.setHost(hostOptional.get());
-//                        rate.setRate(rateDTO.getRate());
-//                        rate.setDate(LocalDate.now());
-//                        rateRepository.save(rate);
-//                    }
-//
-//
-//
-//                }
-//
-//            }
-//
-//
-//        }
-//    }
+    public void rateHost(RateDTO rateDTO){
+        UserApp loggedInUser = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        if (loggedInUser.getRole().getName().equals("GOST")) {
+            Optional<Host>hostOptional = hostRepository.findById(rateDTO.getHostId());
+            if(hostOptional.isPresent()){
+
+               GetAllByGuestIdRequest request = GetAllByGuestIdRequest.newBuilder()
+                        .setGuestId(Math.toIntExact(loggedInUser.getId()))
+                        .build();
+
+              GetAllAccommodationResponse response = reservationServiceStub.getAllGuestAccommodations(request);
+
+                if(response.getAccommodationsList().isEmpty()){
+                    System.out.println("ne moze da se doda ocena");
+                } else {
+
+                    if(response.getAccommodationsList().contains(hostOptional.get().getId())){
+                        Rate rate = new Rate();
+                        rate.setHost(hostOptional.get());
+                        rate.setRate(rateDTO.getRate());
+                        rate.setDate(LocalDate.now());
+                        rateRepository.save(rate);
+                    }
+
+
+
+                }
+
+            }
+
+
+        }
+    }
 
     public void updateRate(Long rateId, RateDTO rateDTO){
         Optional<Rate>rateOptional = rateRepository.findById(rateId);
