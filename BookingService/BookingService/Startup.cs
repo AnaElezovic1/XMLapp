@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using BloodBankLibrary.Core.Accomodations;
 using BloodBankLibrary.Core.Booking;
 using YourNamespace.Services;
+using BookingService.Booking;
+using BookingService;
 
 namespace BloodBankAPI
 {
@@ -25,10 +27,11 @@ namespace BloodBankAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<WSDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("BookingDb")));
+            //services.AddDbContext<WSDbContext>(options =>
+            //options.UseNpgsql(Configuration.GetConnectionString("BookingDb")));
+            services.Configure<DatabaseSettings>(Configuration.GetSection("Database"));
             var channel = new Channel("localhost", 4111, ChannelCredentials.Insecure);
-            var client = new BookingService.BookingServiceClient(channel);
+            var client = new BloodBankLibrary.Core.Booking.BookingService.BookingServiceClient(channel);
             services.AddSingleton(client);
 
 
@@ -93,8 +96,8 @@ namespace BloodBankAPI
             });
             server = new Server
             {
-                
-                Services = {BookingService.BindService(app.ApplicationServices.GetService<GRPCBookingService>()) },
+
+                Services = { BloodBankLibrary.Core.Booking.BookingService.BindService(app.ApplicationServices.GetService<GRPCBookingService>()) },
                 Ports = { new ServerPort("localhost", 4111, ServerCredentials.Insecure) }
             };
             server.Start();

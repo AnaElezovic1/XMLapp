@@ -5,48 +5,50 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Abp.Domain.Entities;
+using MongoDB.Driver;
+using ReservationService.Reservation;
+using Microsoft.Extensions.Options;
 
 namespace BloodBankLibrary.Core.Accomodations
 {
     public class ReservationRepository : IReservationRepository
     {
-        private readonly Settings.WSDbContext _context;
+        private readonly IMongoCollection<ReservationBE> _reservations;
 
-        public ReservationRepository(Settings.WSDbContext context)
+        public ReservationRepository(
+            IOptions<DatabaseSettings> databaseSettings
+        )
         {
-            _context = context;
+            var mongoClient = new MongoClient(databaseSettings.Value.ConnectionString);
+            var mongoDatabase = mongoClient.GetDatabase(databaseSettings.Value.DatabaseName);
+            _reservations = mongoDatabase.GetCollection<ReservationBE>(databaseSettings.Value.ReservationsCollectionName);
         }
 
         public void Create(ReservationBE reservation)
         {
-            _context.Reservations.Add(reservation);
-            _context.SaveChanges();
+            Random random = new();
+            reservation.Id = random.Next(10000);
+            _reservations.InsertOne(reservation);
         }
 
         public void Delete(ReservationBE reservation)
         {
-            _context.Reservations.Remove(reservation);
-            _context.SaveChanges();
+            _reservations.DeleteOne(res => res == reservation);
         }
 
         public IEnumerable<ReservationBE> GetAll()
         {
-            return _context.Reservations.ToList();
+            return _reservations.Find(_ => true).ToList();
         }
 
         public ReservationBE GetById(int id)
         {
-            return _context.Reservations.Find(id);
+            return _reservations.Find(user => user.Id == id).FirstOrDefault();
         }
 
         public void Update(ReservationBE reservation)
         {
-            var entry = _context.Find(typeof(ReservationBE),reservation.Id);
-            _context.Entry(entry).CurrentValues.SetValues(reservation);
-
-
-            _context.SaveChanges();
-
+            _reservations.FindOneAndReplace(oldUser => oldUser.Id == reservation.Id, reservation);
         }
 
     }

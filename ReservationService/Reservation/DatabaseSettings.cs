@@ -1,0 +1,9 @@
+﻿namespace ReservationService.Reservation
+{
+    public class DatabaseSettings
+    {
+        public string ConnectionString { get; set; } = null!;
+        public string DatabaseName { get; set; } = null!;
+        public string ReservationsCollectionName { get; set; } = null!;
+    }
+}

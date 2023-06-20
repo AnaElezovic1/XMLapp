@@ -17,7 +17,7 @@ using GetAllRequest = BloodBankLibrary.Core.Booking.GetAllRequest;
 
 namespace YourNamespace.Services
 {
-    public class GRPCBookingService:BookingService.BookingServiceBase
+    public class GRPCBookingService : BloodBankLibrary.Core.Booking.BookingService.BookingServiceBase
     {
         private readonly IBookingRepository bookingRepository;
 
@@ -35,7 +35,7 @@ namespace YourNamespace.Services
             GetAllResponse list = new GetAllResponse();
             List<BookingBE> bookingBEs = bookingRepository.GetAll().ToList();
             List<Booking> bookings = new List<Booking>();
-            foreach(BookingBE bE in bookingBEs)
+            foreach (BookingBE bE in bookingBEs)
             {
                 Booking acc1 = new Booking();
                 acc1.Id = bE.Id;
@@ -43,9 +43,9 @@ namespace YourNamespace.Services
                 acc1.Autoaccept = bE.Autoaccept;
                 acc1.End = Timestamp.FromDateTime(bE.End);
                 acc1.Start = Timestamp.FromDateTime(bE.Start);
-                acc1.Perperson= bE.Perperson;
-                acc1.Price= bE.Price;
-               
+                acc1.Perperson = bE.Perperson;
+                acc1.Price = bE.Price;
+
                 list.Bookings.Add(acc1);
             }
             return Task.FromResult(list);
@@ -85,7 +85,7 @@ namespace YourNamespace.Services
 
         public override Task<DeleteResponse> Delete(DeleteRequest request, ServerCallContext context)
         {
-            
+
             BookingBE accomodationBE = new BookingBE();
             accomodationBE.Id = request.Booking.Id;
             accomodationBE.AccommodationId = request.Booking.AccommodationId;
@@ -106,7 +106,8 @@ namespace YourNamespace.Services
             foreach (Accomodation ac in accommodation.Accomodations)
             {
                 if (ac.HostId == request.Id)
-                    foreach (BookingBE bkng in bookingRepository.GetAll().Where(e => e.AccommodationId == ac.Id)){
+                    foreach (BookingBE bkng in bookingRepository.GetAll().Where(e => e.AccommodationId == ac.Id))
+                    {
                         bookingRepository.Delete(bkng);
                     }
 
@@ -120,7 +121,7 @@ namespace YourNamespace.Services
             var channel = new Channel("localhost", 4211, ChannelCredentials.Insecure);
             var client = new AccomodationService.AccomodationServiceClient(channel);
 
-        
+
 
             var accommodation = client.GetAll(new Empty());
             foreach (Accomodation ac in accommodation.Accomodations)
@@ -157,7 +158,7 @@ namespace YourNamespace.Services
             var channel = new Channel("localhost", 4311, ChannelCredentials.Insecure);
             var client = new ReservationService.ReservationServiceClient(channel);
             var reservations = client.GetAll(new BloodBankAPI.GetAllRequest());
-            foreach(var reservation in reservations.Reservations)
+            foreach (var reservation in reservations.Reservations)
             {
                 if (reservation.BookingId == request.Booking.Id)
                     return Task.FromResult(new UpdateResponse());

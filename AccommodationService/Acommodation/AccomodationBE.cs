@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace BloodBankLibrary.Core.Accomodations
 {
     public class AccomodationBE
     {
-        [Key]
         private int id;
         private string name;
         private string description;
@@ -15,7 +15,7 @@ namespace BloodBankLibrary.Core.Accomodations
         public AccomodationBE()
         {
         }
-
+        [BsonId]
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }

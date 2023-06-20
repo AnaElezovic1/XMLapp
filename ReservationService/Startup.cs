@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Settings;
 using Microsoft.EntityFrameworkCore;
 using BloodBankAPI;
+using ReservationService.Reservation;
 
 namespace AccommodationService
 {
@@ -23,8 +24,9 @@ namespace AccommodationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<WSDbContext>(options =>
-         options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")), ServiceLifetime.Singleton); 
+            //services.AddDbContext<WSDbContext>(options =>
+            //options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")), ServiceLifetime.Singleton); 
+            services.Configure<DatabaseSettings>(Configuration.GetSection("Database"));
             services.AddSingleton<IReservationRepository, ReservationRepository>();
             services.AddSingleton<IReservationService, ReservationServiceBE>();
             services.AddSingleton<GRPCReservationService>();
@@ -76,7 +78,7 @@ namespace AccommodationService
 
             server = new Server
             {
-                Services = { ReservationService.BindService(app.ApplicationServices.GetService<GRPCReservationService>()) },
+                Services = { BloodBankAPI.ReservationService.BindService(app.ApplicationServices.GetService<GRPCReservationService>()) },
                 Ports = { new ServerPort("localhost", 4311, ServerCredentials.Insecure) }
                 
             };

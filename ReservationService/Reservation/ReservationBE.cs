@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace BloodBankLibrary.Core.Accomodations
@@ -13,7 +14,7 @@ namespace BloodBankLibrary.Core.Accomodations
         public ReservationBE(    )
         {
         }
-
+        [BsonId]
         public int Id { get => id; set => id = value; }
         public int GuestId { get => guestId; set => guestId = value; }
         public int NoOfGuests { get => noOfGuests; set => noOfGuests = value; }

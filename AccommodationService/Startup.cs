@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Settings;
 using YourNamespace.Services;
 using Microsoft.EntityFrameworkCore;
+using AccommodationService.Acommodation;
 
 namespace AccommodationService
 {
@@ -23,8 +24,9 @@ namespace AccommodationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<WSDbContext>(options =>
-         options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")), ServiceLifetime.Singleton); 
+            //services.AddDbContext<WSDbContext>(options =>
+            //options.UseNpgsql(Configuration.GetConnectionString("BloodBankDb")), ServiceLifetime.Singleton); 
+            services.Configure<DatabaseSettings>(Configuration.GetSection("Database"));
             services.AddSingleton<IAccomodationRepository, AccomodationRepository>();
             services.AddSingleton<IAccomodationService, AccomodationServiceBE>();
             services.AddSingleton<GRPCAccomodationService>();

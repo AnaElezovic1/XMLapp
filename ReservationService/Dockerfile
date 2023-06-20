@@ -1,24 +1,35 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-#Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
-#For more information, please see https://aka.ms/containercompat
-
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 16377
+EXPOSE 4311
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ReservationService.csproj", "."]
-RUN dotnet restore "./ReservationService.csproj"
+
+# Install protobuf tools
+RUN apt-get update && \
+    apt-get install -y protobuf-compiler
+
+# Install Google.Protobuf NuGet package
+RUN dotnet add package Google.Protobuf --version 3.18.1
+
+# Copy and compile the Protos directory
+COPY Protos /src/Protos
+RUN protoc -I=/src/Protos --csharp_out=/src/Protos /src/Protos/*.proto
+
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "ReservationService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ReservationService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ReservationService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ReservationService.dll"]
+
+# Add gRPC related lines
+ENV ASPNETCORE_URLS=http://*:16377;https://*:4311
+EXPOSE 16377
+EXPOSE 4311
